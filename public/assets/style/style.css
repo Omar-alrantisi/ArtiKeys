@@ -1,0 +1,141 @@
+
+body{
+    overflow-x: hidden;
+}
+input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+.nav-item a{
+    color: black;
+    transition: 0.3;
+}
+.nav-item a:hover{
+    color: #002FC2;
+}
+.slider{
+    width: 100%;
+}
+form{
+    width: 50%;
+    margin: auto;
+}
+
+    .btn1{
+        margin:10px auto 5px;
+        width: 100%;
+        background-color: #002FC2 !important;
+        border: none;
+        color: #ffff;
+        font-weight: bold;
+        height: 50px;
+
+
+
+}
+span{
+    color: #002FC2;
+}
+
+.email-verification-form{
+    text-align: center;
+    border: 1px solid #002FC2 ;
+    padding: 1.5rem 2rem;
+
+}
+.email-verification-form a{
+    color: #000;
+}
+.step-name{
+    text-align: left;
+    color: #000;
+    font-size: 18px;
+
+}
+.step-name-part-1{
+    border: 2px #000 solid;
+    padding: 5px;
+    color: #000;
+}
+.email-verification-form p{
+    color: #000;
+}
+.email-verification-p{
+    font-weight: 500;
+}
+.email-verification-p-2{
+    font-weight: 700;
+    margin-top: 2rem;
+}
+.email-verification-p-3{
+    font-weight: 600;
+    margin-top: 1rem;
+}
+.email-verification-p-4{
+    color: #002FC2 !important;
+    font-weight: 700;
+}
+.verification-number{
+    height: 3rem;
+    width: 7rem;
+    border: 3px solid #002FC2;
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* start user info */
+.user-info-form{
+    width: 100%;
+    margin-top: 3rem;
+    /*border: 3px solid #002FC2;*/
+    padding: 2rem;
+    color: black;
+}
+.user-info-form label{
+    color: #000;
+    font-weight: 700;
+}
+
+
+/* end user info */
+
+/*start header*/
+.navbar{
+    font-weight: 700;
+
+}
+/*end header*/
+
+
+/*start index page*/
+.index{
+    font-weight: 700;
+}
+.show-password-button i{
+    font-size: 1.5rem;
+    color: black;
+}
+
+.centered-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: .8rem !important;
+
+}
+/*end index page*/
+
+
+@media (max-width:600px)  {
+    .slider{
+        display: none;
+    }
+    form{
+        width: 100% ;
+    }
+}
