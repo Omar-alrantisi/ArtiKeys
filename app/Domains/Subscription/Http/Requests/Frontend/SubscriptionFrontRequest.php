@@ -38,10 +38,11 @@ class SubscriptionFrontRequest extends FormRequest
             'second_name_ar' => ['required'],
             'third_name_ar' => ['required'],
             'last_name_ar' => ['required'],
+            'country_name' => ['nullable'],
             'gender' => ['required'],
             'marital_status' => ['required'],
-            'identification_card' => ['required', 'mimes:' . implode(',', StorageManagerService::$allowedImages)],
-            'vaccination_certificate' => ['required', 'mimes:' . implode(',', StorageManagerService::$allowedImages)],
+            'identification_card' => ['nullable', 'mimes:' . implode(',', StorageManagerService::$allowedImages)],
+            'vaccination_certificate' => ['nullable', 'mimes:' . implode(',', StorageManagerService::$allowedImages)],
             'personal_image' => ['required', 'mimes:' . implode(',', StorageManagerService::$allowedImages)],
 
 

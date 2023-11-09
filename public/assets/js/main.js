@@ -24,7 +24,7 @@ const email_format = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+")
     const check_terms = document.getElementById("check_terms");
     const check_terms_message = document.getElementById("check_terms_message");
     check_terms_message.style.display="none";
-    
+
 
 function sginFunction() {
     //email
@@ -37,7 +37,7 @@ function sginFunction() {
  }
  else {
     email_message.style.display="none";
-    
+
     if (input_email.value.match(email_format)){
         email_message.style.display="block";
         email_message.innerHTML="email valid";
@@ -50,20 +50,20 @@ function sginFunction() {
 
 
 //mobile
-  
+
   if(input_mobile.value===""){
     message_mobile.style.display="block";
-    message_mobile.innerHTML="mobile is empty";    
+    message_mobile.innerHTML="mobile is empty";
 }
 else{
-    message_mobile.style.display="none"; 
+    message_mobile.style.display="none";
 
     if(input_mobile.value.match(format_num)){
-        message_mobile.style.display="none"; 
+        message_mobile.style.display="none";
     }
     else{
         message_mobile.style.display="block";
-        message_mobile.innerHTML="must be orange num";  
+        message_mobile.innerHTML="must be orange num";
     }
 }
 //pass
@@ -76,11 +76,11 @@ else{
 
 
     if(input_pass.value.match(format_pass)){
-        pass_message.style.display="none"; 
+        pass_message.style.display="none";
     }
     else{
         pass_message.style.display="block";
-        pass_message.innerHTML="Password Not Valid";  
+        pass_message.innerHTML="Password Not Valid";
     }
 }
 //check
@@ -91,7 +91,21 @@ if(!check_terms.checked){
 else{
     check_terms_message.style.display="none";
     check_terms.style.backgroundColor="red";
-    
-}    
 
 }
+
+}
+document.addEventListener("DOMContentLoaded", function() {
+    const passwordInput = document.getElementById("password");
+    const togglePasswordButton = document.getElementById("togglePassword");
+
+    togglePasswordButton.addEventListener("click", function() {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            togglePasswordButton.innerHTML = '<i style="font-size: 1.5rem;font-weight: 700" class="fa fa-eye-slash" aria-hidden="true"></i>';
+        } else {
+            passwordInput.type = "password";
+            togglePasswordButton.innerHTML = '<i style="font-size: 1.5rem;font-weight: 700" class="fa fa-eye"></i>';
+        }
+    });
+});

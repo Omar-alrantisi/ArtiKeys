@@ -3,52 +3,74 @@
     @section('home')
         active
     @endsection
-{{--  start index section  --}}
-    <section class="container index">
-    <form  action="{{route('frontend.frontSubscription.user.store')}}" method="post" >
-        @csrf
-        <div class="mb-3">
-            @include('includes.partials.messages')
-            <h1 class="font-weight-bold">Create an account</h1>
-            <label for="email" class="form-label font-weight-bold">Email address <span>*</span></label>
-            <input type="email" name="email" value="{{old('email')}}" class="form-control" id="email" aria-describedby="emailHelp" required>
-            <p id="email_message"></p>
-            <div id="emailHelp" class="form-text ">eg: username@domain.com</div>
-        </div>
-        <div class="mb-3">
-            <label for="phone_number" class="form-label">Mobile <span>*</span></label>
-            <input type="text" name="phone_number" {{old('phone_number')}} maxlength="10" class="form-control" id="phone_number" required>
-            <p id="message_mobile"></p>
-            <div id="mobileHelp" class="form-text">eg: 077********</div>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password <span>*</span></label>
-            <div class="input-group mb-3">
-                <input type="password" name="password" id="password" class="form-control" aria-label="password"
-                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,18}$"
-                       title="Password must be 6 to 18 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character (@, $, !, %, *, ?, &).">
-{{--                <button type="button" class="bg-primary text-white" onclick="generatePassword()">Generate Password</button>--}}
+    <div class="container-fluid  mb-5">
+{{--        <div class="row">--}}
+{{--            <div class="col-md-6 mt-5">--}}
+{{--                <a href="{{route('frontend.auth.login')}}" class="text-decoration-none">--}}
+{{--                    <div class="card custom-box">--}}
+{{--                        <div class="card-body">--}}
+{{--                            <i class="fas fa-sign-in-alt custom-icon"></i>--}}
+{{--                            <h5 class="card-title">Log In</h5>--}}
+{{--                            <p class="card-description">Welcome back, creative soul! 🎨 Access your Artikeys account and dive into a world of inspiration and learning. Whether you're picking up where you left off or exploring new horizons, your artistic adventure awaits. Log in now to continue your creative odyssey</p>--}}
+{{--                            <p class="card-text">Click here to log in.</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </a>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-6 mt-5">--}}
+{{--                <a href="{{route('frontend.auth.register')}}" class="text-decoration-none">--}}
+{{--                    <div class="card custom-box">--}}
+{{--                        <div class="card-body">--}}
+{{--                            <i class="fas fa-user-plus custom-icon"></i>--}}
+{{--                            <h5 class="card-title">Register</h5>--}}
+{{--                            <p class="card-description">Unlock the world of limitless possibilities with a single click! 🚀 Join the Artikeys community today and embark on a journey of creativity and knowledge. It's time to turn your dreams into reality. Register now and let your artistic passions flourish!</p>--}}
+{{--                            <p class="card-text">Click here to create an account.</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 
-                <div class="input-group-append">
-                    <button class="btn  btn-outline-secondary show-password-button" id="togglePassword" type="button"><i  class="fa fa-eye"></i></button>
+
+    <div class="team-boxed">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Welcome to <span>ArtiKeys</span>  </h2>
+                <p class="text-center">Choose an option below to get started:</p>
+            </div>
+            <div class="row people">
+                <div class="col-md-6 col-lg-6 item">
+                    <div class="box">
+                        <i class="fas fa-sign-in-alt custom-icon"></i>
+                        <h3 class="name">Log In</h3>
+                        <p class="description">Welcome back, creative soul! 🎨 Access your Artikeys account and dive into a world of inspiration and learning. Whether you're picking up where you left off or exploring new horizons, your artistic adventure awaits. Log in now to continue your creative odyssey </p>
+                        <a href="{{route('frontend.auth.login')}}" class="text-decoration-none">
+                        <button id="signup_btn" type="submit" class="btn btn-primary btn-lg w-25 mt-4">
+                            <i class="fas fa-arrow-right"></i>
+                            Click here
+                        </button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-6 item">
+                    <div class="box">
+                        <i class="fas fa-user-plus custom-icon"></i>
+                        <h3 class="name">Register</h3>
+                        <p class="description">Unlock the world of limitless possibilities with a single click! 🚀 Join the Artikeys community today and embark on a journey of creativity and knowledge. It's time to turn your dreams into reality. Register now and let your artistic passions flourish! </p>
+                        <a href="{{route('frontend.auth.register')}}" class="text-decoration-none">
+                        <button id="signup_btn" type="submit" class="btn btn-primary btn-lg w-25 mt-4">
+                            <i class="fas fa-arrow-right"></i>
+                            Click here
+                        </button>
+                        </a>
+                    </div>
                 </div>
             </div>
-
-            <p id="pass_message"></p>
-            <div id="pass_help" class="form-text">Create a password that's 8 characters or longer, with at least one lowercase letter, one uppercase letter, one digit, and one special character @$!%*?& to boost its security.</div>
         </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox"  id="check_terms" required>
-            <label class="form-check-label" for="exampleCheck1">I agree to the <a href="{{route('frontend.pages.terms')}}"> terms & conditions </a> ArtiKeys.</label>
-            <p id="check_terms_message"></p>
-        </div>
-        <button id="signup_btn" type="submit" class="btn btn1 btn-primary">SignUp</button>
-        <br>
-        <a href="{{route('frontend.auth.login')}}" class="btn btn1 btn-primary centered-button">Already Have an Account?Login</a>
-
-    </form>
-    </section>
+    </div>
 @endsection
 <script>
     document.addEventListener("DOMContentLoaded", function() {

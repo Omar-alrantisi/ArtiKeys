@@ -4,32 +4,48 @@
         active
     @endsection
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+{{--    <h4 class="text-center mt-5">Welcome! {{$users->email}} </h4>--}}
+    <div class="container">
+        <br /><br />
+        <ul class="list-unstyled multi-steps">
+            <li>Sign Up</li>
+            <li class="is-active">Email Confirmation</li>
+            <li>Mobile Confirmation</li>
+            <li>Finish</li>
+        </ul>
 
-    <h4 class="text-center mt-5">Welcome! {{$users->email}} </h4>
-    <form action="{{ route('frontend.frontSubscription.emailVerification.verify') }}" method="post" class="email-verification-form mt-5">
+
+    <form action="{{ route('frontend.frontSubscription.emailVerification.verify') }}" method="post" class="email-verification-form mt-5 mb-5">
+
         @csrf
         @include('includes.partials.messages')
-        <div class="mb-3">
-            <!-- Display user's email -->
-            <p class="email-verification-p">
-                A verification code has been sent via email to: {{ auth()->user()->email }}
-            </p>
-            <p class="email-verification-p-2">
-                Enter verification code (from 4 digits)<span>*</span>
-            </p>
-            <input class="verification-number" type="number" name="verification_code" min="1000" max="9999" step="1" placeholder="1234" required>
-            <!-- Add a hidden input for user's email -->
-            <input type="hidden" name="email" value="{{ auth()->user()->email }}">
-            <p class="email-verification-p-3">
-                Didn't get the verification code,
-                <a href="#" id="resendCodeLink">Resend Code</a>
-            </p>            <p style="color: #002FC2;">
-                If you can't find your conformation/reset password email in your
-                normal inbox, it is worth checking in your spam or junk mail section.
-            </p>
-            <button id="verify_btn" type="submit" class="btn btn1 btn-primary">Verify</button>
-        </div>
+        <p class="email-verification-p">
+            A verification code has been dispatched to the email address: {{ auth()->user()->email }}
+        </p>
+        <p class="email-verification-p-2">
+            Please input the 4-digit verification code: <span>*</span>
+        </p>
+        <input  type="hidden" name="email" value="{{ auth()->user()->email }}">
+        <input class="verification-input" type="number" name="verification_code" min="1000" max="9999" step="1" placeholder="1234" required>
+        <p class="email-verification-p-3">
+            I haven't received the verification code,
+            <a href="#" id="resendCodeLink">please send it again.</a>
+        </p>
+        <p class="note">
+            If you're unable to locate your confirmation/reset password email in your primary inbox, it's advisable to check your spam or junk mail folder.
+        </p>
+        <button id="verify_btn" type="submit" class="btn-primary">
+            <i class="fas fa-check-circle"></i> Confirm
+        </button>
     </form>
+    </div>
+    <!-- Add Bootstrap tooltips script for hint on hover -->
+    <script>
+        $(function () {
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
 
 @endsection
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
@@ -45,7 +61,6 @@
             button:"Okss"
         })
     @endif
-
 
         // JavaScript function to resend verification code
         function resendVerificationCode() {

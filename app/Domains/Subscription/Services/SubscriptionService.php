@@ -48,6 +48,9 @@ class SubscriptionService extends BaseService
                 throw $e;
             }
         }
+        else{
+            $data['identification_card']='not approved';
+        }
         if (!empty($data['vaccination_certificate'])) {
             try {
                 $data = $this->uploadMedia($data, 'vaccination_certificate', 'subscription/vaccination_certificate');
@@ -55,6 +58,12 @@ class SubscriptionService extends BaseService
             } catch (\Exception $e) {
                 throw $e;
             }
+        }
+        else{
+            $data['vaccination_certificate']='not approved';
+        }
+        if($data['country_id']=='other'){
+            $data['country_id']=null;
         }
         $data['user_id'] = auth()->id();
         $data['created_by_id'] = 1;

@@ -5,40 +5,95 @@
     @section('home')
         active
     @endsection
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
         a{
             text-decoration: none;
         }
+        .bg-primary{
+            background-color: #002FC2 !important;
+        }
+        i{
+            color: #002FC2 !important;
+
+        }
+
+
+
     </style>
-    <div class="container mt-5">
-        <div class="row">
+    <div class="container text-center mt-5">
+        @include('includes.partials.messages')
+        <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="card bg-dark text-white p-4">
+                <div class="card border-primary shadow"> <!-- Added shadow -->
+                    <div class="card-body confirmation-card">
+                        <div class="d-flex justify-content-center">
+                            @if(isset($users->subscription->personal_image))
+                                <img src="{{url('storage/subscription/personal_images/'.$users->subscription->personal_image)}}" alt="Profile Image" class="rounded-circle" width="150">
+                            @endif
+                        </div>
+                        <h3 class="card-title mt-3" style="color: #002FC2;">Welcome, {{ explode(' ', $users->subscription->name_en)[0] }}!</h3>
+                        <p class="text-muted mb-4">Your account information:</p>
+                        <ul class="list-unstyled text-left"> <!-- Aligned list items vertically -->
+                            <li class="mb-2">
+                                <i class="fas fa-envelope" style="margin-right: 10px;"></i>
+                                <span>Email:</span> {{$users->email}}
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-mobile-alt" style="margin-right: 10px;"></i>
+                                <span>Mobile:</span> {{$users->phone_number}}
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-user" style="margin-right: 10px;"></i>
+                                <span>ID:</span> {{$users->id}}
+                            </li>
+                            <li class="mb-2">
+{{--                                <i class="fas fa-cogs" style="margin-right: 10px; color: green;">--}}
+                                <i class="fas fa-check-circle" style="margin-right: 10px; color: green;"></i>
+
+{{--                                </i> <!-- Added a checkmark icon for "In Progress" status -->--}}
+                                <span>Status:</span> In Progress
+                            </li>
+                        </ul>
+                        <p class="text-center mt-4">
+                    <span>
+Don't fret! You have the flexibility to log in as many times as you need. You can work on completing all the requirements at your own pace, ensuring you meet every milestone on your journey to success. Your progress is in your hands, and remember, you still have until [insert deadline date] to complete everything before the deadline!                    </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card bg-primary text-white p-4">
                     <h5 class="card-title">Your Section</h5>
-                    <p class="card-text">You have to complete all sections below to enable submit your application.</p>
+                    <p class="card-text">To unlock the power of your application, conquer each of the sections below. Your journey to success begins by conquering these challenges, paving the way for your application's triumphant submission.</p>
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <a href="{{route('frontend.frontSubscription.subscribeInfo.index')}}">
                             <div class="card text-dark bg-light">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
-                                        <i style="font-size: 50px" class="fa fa-user" aria-hidden="true"></i>
+                                        <i style="font-size: 50px" class="fas fa-id-card-alt" aria-hidden="true"></i>
 
                                         <div class="mx-5">
-                                            <h6 class="card-title">Personal Information</h6>
-                                            <p class="card-text">We need your data to complete our filtration</p>
+                                            <h6 class="card-title">Your Identity</h6>
+                                            <p class="card-text">We rely on your valuable information to fine-tune our filtering process and deliver a tailored experience just for you.</p>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between">
 
                                         <i class=""></i>
                                         @if(isset($users->subscriptionInfo))
-                                            <div class="text-success">Status: Completed</div>
+                                            <div class=""><i class="fas fa-check-circle text-success"></i> Completed</div>
                                         @else
-                                            <div class="text-danger">Status: Not Started</div>
+                                            <div class=""><i class="fas fa-circle text-danger"></i> Not Started</div>
                                         @endif
                                     </div>
                                 </div>
@@ -51,19 +106,18 @@
                             <div class="card text-dark bg-light">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
-                                        <i style="font-size: 50px" class="fa fa-question-circle" aria-hidden="true"></i>
-
+                                        <i style="font-size: 50px" class="fas fa-lightbulb"></i>
                                         <div class="mx-5">
-                                            <h6 class="card-title">Questionnaire</h6>
-                                            <p class="card-text">A bunch of questions of your interest in coding</p>
+                                            <h6 class="card-title">Coding Insights</h6>
+                                            <p class="card-text">Dive into the world of coding with thought-provoking questions designed to illuminate your coding journey.</p>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between">
                                         <i class=""></i>
                                         @if(isset($users->personalQuestion))
-                                            <div class="text-success">Status: Completed</div>
+                                            <div class=""><i class="fas fa-check-circle text-success"></i> Completed</div>
                                         @else
-                                            <div class="text-danger">Status: Not Started</div>
+                                            <div class=""><i class="fas fa-circle text-danger"></i> Not Started</div>
                                         @endif
 
                                     </div>
@@ -77,19 +131,19 @@
                                 <div class="card text-dark bg-light">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
-                                            <i style="font-size: 50px" class="fa fa-globe"></i>
+                                            <i style="font-size: 50px" class="fas fa-language"></i>
                                             <div class="mx-5">
-                                                <h6 class="card-title">English Test</h6>
-                                                <p class="card-text">Test your english level,it is on time submission</p>
+                                                <h6 class="card-title">Language Proficiency Challenge</h6>
+                                                <p class="card-text">Embark on a journey to test and enhance your English language skills with our timely submission challenge.</p>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between">
 
                                             <i class=""></i>
                                             @if(isset($users->userEnglishTest))
-                                                <div class="text-success">Status: Completed</div>
+                                                <div class=""><i class="fas fa-check-circle text-success"></i> Completed</div>
                                             @else
-                                                <div class="text-danger">Status: Not Started</div>
+                                                <div class=""><i class="fas fa-circle text-danger"></i> Not Started</div>
                                             @endif
                                         </div>
                                     </div>
@@ -102,18 +156,18 @@
                                 <div class="card text-dark bg-light">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
-                                            <i style="font-size: 50px" class="fa fa-code"></i>
+                                            <i style="font-size: 50px"  class="fas fa-laptop-code"></i>
                                             <div class="mx-5">
-                                                <h6 class="card-title">Code Challenge</h6>
-                                                <p class="card-text">Start to learning the code,it is on time submission</p>
+                                                <h6 class="card-title">Code Mastery Journey</h6>
+                                                <p class="card-text">Embark on a learning adventure as you explore the world of coding through our timely submission challenge.</p>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <i style="font-size: 50px" class=""></i>
                                             @if(isset($users->codeChallengeSubmission))
-                                                <div class="text-success">Status: Completed</div>
+                                                <div class=""><i class="fas fa-check-circle text-success"></i> Completed</div>
                                             @else
-                                                <div class="text-danger">Status: Not Started</div>
+                                                <div class=""><i class="fas fa-circle text-danger"></i> Not Started</div>
                                             @endif
 
                                         </div>
@@ -126,25 +180,28 @@
 {{--                    <button class="btn btn-primary mt-3">Submit</button>--}}
                 </div>
             </div>
-            <div class="col-lg-4 " style="margin-top: 7rem">
-                <div class="mt-5">
-                    <p style="font-size: 24px;font-weight: 600">Welcome <span> {{ explode(' ', $users->subscription->name_en)[0] }}</span>!</p>
-                    <p style="font-size: 18px"><span style="font-weight: 700">Email:</span> {{$users->email}}</p>
-                    <p style="font-size: 18px"><span style="font-weight: 700">Mobile: </span>{{$users->phone_number}}</p>
-                    <p style="font-size: 18px"><span style="font-weight: 700">Application Status:</span> In Progress</p>
-                    <p>
-                        <span>
-                            Don't Worry, You Still Have Time To Login Again Many
-                          Times.And To Complete All The Requirements Until ../../../
-                        </span>
-                    </p>
-                </div>
-            </div>
+
         </div>
     </div>
 
-    <!-- Add Font Awesome (for icons) and Bootstrap JS scripts -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5"></script>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="icon">
+                    <!-- Place your icon here -->
+                </div>
+                <div class="content">
+                    <h2 class="title">Card Title</h2>
+                    <p class="description">Card description goes here. Make it concise.</p>
+                    <div class="status">Status: Active</div>
+                </div>
+                <div class="entry-button">
+                    <a href="#" class="btn">Enter</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 @endsection

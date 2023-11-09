@@ -1,105 +1,90 @@
-{{--@extends('frontend.layouts.app')--}}
-
-{{--@section('title', __('Login'))--}}
-
-{{--@section('content')--}}
-{{--    <div class="container py-4">--}}
-{{--        <div class="row justify-content-center">--}}
-{{--            <div class="col-md-8">--}}
-{{--                <x-frontend.card>--}}
-{{--                    <x-slot name="header">--}}
-{{--                        @lang('Login')--}}
-{{--                    </x-slot>--}}
-
-{{--                    <x-slot name="body">--}}
-{{--                        <x-forms.post :action="route('frontend.auth.login')">--}}
-{{--                            <div class="form-group row">--}}
-{{--                                <label for="email" class="col-md-4 col-form-label text-md-right">@lang('E-mail Address')</label>--}}
-
-{{--                                <div class="col-md-6">--}}
-{{--                                    <input type="email" name="email" id="email" class="form-control" placeholder="{{ __('E-mail Address') }}" value="{{ old('email') }}" maxlength="255" required autofocus autocomplete="email" />--}}
-{{--                                </div>--}}
-{{--                            </div><!--form-group-->--}}
-
-{{--                            <div class="form-group row">--}}
-{{--                                <label for="password" class="col-md-4 col-form-label text-md-right">@lang('Password')</label>--}}
-
-{{--                                <div class="col-md-6">--}}
-{{--                                    <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password') }}" maxlength="100" required autocomplete="current-password" />--}}
-{{--                                </div>--}}
-{{--                            </div><!--form-group-->--}}
-
-{{--                            <div class="form-group row">--}}
-{{--                                <div class="col-md-6 offset-md-4">--}}
-{{--                                    <div class="form-check">--}}
-{{--                                        <input name="remember" id="remember" class="form-check-input" type="checkbox" {{ old('remember') ? 'checked' : '' }} />--}}
-
-{{--                                        <label class="form-check-label" for="remember">--}}
-{{--                                            @lang('Remember Me')--}}
-{{--                                        </label>--}}
-{{--                                    </div><!--form-check-->--}}
-{{--                                </div>--}}
-{{--                            </div><!--form-group-->--}}
-
-{{--                            @if(config('boilerplate.access.captcha.login'))--}}
-{{--                                <div class="row">--}}
-{{--                                    <div class="col">--}}
-{{--                                        @captcha--}}
-{{--                                        <input type="hidden" name="captcha_status" value="true" />--}}
-{{--                                    </div><!--col-->--}}
-{{--                                </div><!--row-->--}}
-{{--                            @endif--}}
-
-{{--                            <div class="form-group row mb-0">--}}
-{{--                                <div class="col-md-8 offset-md-4">--}}
-{{--                                    <button class="btn btn-primary" type="submit">@lang('Login')</button>--}}
-
-{{--                                    <x-utils.link :href="route('frontend.auth.password.request')" class="btn btn-link" :text="__('Forgot Your Password?')" />--}}
-{{--                                </div>--}}
-{{--                            </div><!--form-group-->--}}
-
-{{--                            <div class="text-center">--}}
-{{--                                @include('frontend.auth.includes.social')--}}
-{{--                            </div>--}}
-{{--                        </x-forms.post>--}}
-{{--                    </x-slot>--}}
-{{--                </x-frontend.card>--}}
-{{--            </div><!--col-md-8-->--}}
-{{--        </div><!--row-->--}}
-{{--    </div><!--container-->--}}
-{{--@endsection--}}
-
-
-
 @extends('frontend.includes.main')
 @section('body')
     @section('home')
         active
     @endsection
-    <form  action="{{route('frontend.auth.login')}}" method="post" >
+    <section class="container-fluid   background" >
+        <div class="col-md-12">
+            <div class="intro mt-3">
+                <h2 class="text-center">Revisit your  <span>ArtiKeys</span> account </h2>
+            </div>
+    <form action="{{ route('frontend.auth.login') }}" method="post" class="rounded p-4  ">
         @csrf
-        <div class="mb-3">
+        <div class="row">
+        <div class="col-md-6">
             @include('includes.partials.messages')
-            <h2>Sign in</h2>
-            <label for="email" class="form-label">Email address <span>*</span></label>
-            <input type="email" name="email" value="{{old('email')}}" class="form-control" id="email" aria-describedby="emailHelp" required>
+            <div class=" input-group mb-3">
+            <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" title="Enter your email address">
+                <i class="fas fa-envelope "></i>
+            </span>
+                <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email address" required>
+            </div>
             <p id="email_message"></p>
-            <div id="emailHelp" class="form-text">eg: username@domain.com</div>
+            <div id="emailHelp" class="form-text">e.g., username@domain.com</div>
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password <span>*</span></label>
-            <input type="password" name="password" class="form-control" id="password" required>
+        <div class="col-md-6 mb-3">
+            <div class=" input-group mb-3">
+            <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" title="Enter your password">
+                <i class="fas fa-lock "></i>
+            </span>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                <div class="input-group-append">
+                                        <button class="btn  btn-outline-secondary show-password-button" id="togglePassword" type="button"><i  class="fa fa-eye" style="color: #0a53be !important;"></i></button>
+                                    </div>
+            </div>
             <p id="pass_message"></p>
-            <div id="pass_help" class="form-text">The Password should be between 6-18 characters.</div>
+            <div id="pass_help" class="form-text">Password should be between 6-18 characters.</div>
         </div>
-                                            <div class="form-check">
-                                                <input name="remember" id="remember" class="form-check-input" type="checkbox" {{ old('remember') ? 'checked' : '' }} />
+        </div>
+        <div class="mb-3 form-check">
+            <input name="remember" id="remember" class="form-check-input" type="checkbox" {{ old('remember') ? 'checked' : '' }} />
+            <label class="form-check-label" for="remember">
+                Remember Me
+            </label>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button id="signup_btn" type="submit" class="btn btn1 btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </div>
+            <div class="col-md-3">
+                <a href="{{ route('frontend.auth.register') }}" class="btn btn1 btn-secondary centered-button">
+                    <i class="fas fa-user-plus"></i> Don't Have an Account? Sign Up
+                </a>
+            </div>
+        </div>
 
-                                                <label class="form-check-label" for="remember">
-                                                    @lang('Remember Me')
-                                                </label>
-
-        <button id="signup_btn" type="submit" class="btn btn-primary">Login</button>
-        <br>
     </form>
+
+
+
 @endsection
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- Include Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+
+<!-- Include Bootstrap's JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Add Bootstrap tooltips script for hint on hover -->
+<script>
+    $(function () {
+        $('[data-bs-toggle="tooltip"]').tooltip();
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        const passwordInput = document.getElementById("password");
+        const togglePasswordButton = document.getElementById("togglePassword");
+
+        togglePasswordButton.addEventListener("click", function() {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                togglePasswordButton.innerHTML = '<i style="font-size: 1.5rem;font-weight: 700;color: #0a53be !important;" class="fa fa-eye-slash" aria-hidden="true"></i>';
+            } else {
+                passwordInput.type = "password";
+                togglePasswordButton.innerHTML = '<i style="font-size: 1.5rem;font-weight: 700;color: #0a53be !important;" class="fa fa-eye"></i>';
+            }
+        });
+    });
+</script>

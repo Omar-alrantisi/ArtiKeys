@@ -13,6 +13,8 @@ use App\Mail\VerificationCodeMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
+use Kreait\Firebase\Factory;
+use Kreait\Firebase\Auth;
 class SubscriptionFrontController extends Controller
 {
     /**
@@ -102,9 +104,34 @@ class SubscriptionFrontController extends Controller
     }
     public function mobileVerificationIndex()
     {
-        return view('frontend.verification-mobile')
-            ->withUsers($this->userService->getById(auth()->id()));
+        // Get the authenticated user
+        $user = auth()->user();
 
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'User not authenticated.');
+        }
+
+//        $firebase = (new Factory)
+//            ->withServiceAccount(config('services.firebase.credentials.file'))
+//            ->create();
+
+//        $auth = $firebase->getAuth();
+
+        $phoneNumber = $user->phone_number; // Replace with the actual field storing the user's phone number
+        $verificationCode = mt_rand(1000, 9999);
+
+        // Send the verification code via Firebase Realtime Database or Firestore
+//        $database = $firebase->getDatabase();
+
+        // You can save the verification code with a unique key associated with the user's ID
+//        $database->getReference("verification_codes/{$user->id}")->set($verificationCode);
+//
+//        // Use Firebase's phone number authentication to send the verification code to the user
+//        $auth->startVerification($phoneNumber, [
+//            'code' => $verificationCode,
+//        ]);
+
+        return view('frontend.verification-mobile', ['user' => $user])->with('success', 'Verification code sent successfully.');
     }
     public function indexConfirmation()
     {
