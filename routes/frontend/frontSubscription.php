@@ -5,6 +5,8 @@ use App\Domains\Subscription\Http\Controllers\Frontend\SubscriptionInfoFrontCont
 use App\Domains\Subscription\Http\Controllers\Frontend\PersonalQuestionFrontController;
 use App\Domains\Subscription\Http\Controllers\Frontend\UserEnglishTestFrontController;
 use App\Domains\Subscription\Http\Controllers\Frontend\CodeChallengeSubmissionFrontController;
+use App\Http\Controllers\ExamController;
+
 Route::group([
     'prefix' => 'frontSubscription',
     'as' => 'frontSubscription.',
@@ -22,7 +24,7 @@ Route::group([
     Route::group([
         'prefix' => 'subscribe',
         'as' => 'subscribe.',
-        'middleware' => ['auth'],
+        'middleware' => ['auth','check_verify'],
 
     ], function (){
         Route::post('store', [SubscriptionFrontController::class, 'store'])
@@ -34,7 +36,7 @@ Route::group([
     Route::group([
         'prefix' => 'emailVerification',
         'as' => 'emailVerification.',
-        'middleware' => ['auth'],
+        'middleware' => ['auth','check_verify'],
 
     ], function (){
         Route::post('mobile-verification/verify', [SubscriptionFrontController::class, 'verifyEmail'])
@@ -49,7 +51,7 @@ Route::group([
     Route::group([
         'prefix' => 'mobileVerification',
         'as' => 'mobileVerification.',
-        'middleware' => ['auth'],
+        'middleware' => ['auth','check_verify'],
 
     ], function (){
         Route::post('store', [SubscriptionFrontController::class, 'store'])
@@ -57,8 +59,10 @@ Route::group([
 
         Route::get('/', [SubscriptionFrontController::class, 'mobileVerificationIndex'])
             ->name('index');
+        Route::post('verify', [SubscriptionFrontController::class, 'checkVerificationCode'])
+            ->name('verify');
     });
-    Route::group(['middleware' => ['auth']], function() {
+    Route::group(['middleware' => ['auth','check_verify']], function() {
         Route::group([
             'prefix' => 'confirmation',
             'as' => 'confirmation.',
@@ -74,7 +78,7 @@ Route::group([
     Route::group([
         'prefix' => 'subscribeInfo',
         'as' => 'subscribeInfo.',
-        'middleware' => ['auth'],
+        'middleware' => ['auth','check_verify'],
 
     ], function (){
         Route::post('store', [SubscriptionInfoFrontController::class, 'store'])
@@ -86,7 +90,7 @@ Route::group([
     Route::group([
         'prefix' => 'personalQuestion',
         'as' => 'personalQuestion.',
-        'middleware' => ['auth'],
+        'middleware' => ['auth','check_verify'],
 
     ], function (){
         Route::post('store', [PersonalQuestionFrontController::class, 'store'])
@@ -98,9 +102,14 @@ Route::group([
     Route::group([
         'prefix' => 'englishTest',
         'as' => 'englishTest.',
-        'middleware' => ['auth'],
+        'middleware' => ['auth','check_verify'],
 
     ], function (){
+
+        Route::get('/exam', [ExamController::class, 'showExamForm'])->name('exam.form');
+        Route::post('/exam/submit', [ExamController::class, 'submitExam'])->name('exam.submit');
+        Route::get('/exam/result/{exam}', [ExamController::class, 'showResult'])->name('exam.result');
+
         Route::post('store', [UserEnglishTestFrontController::class, 'store'])
             ->name('store');
 
@@ -110,7 +119,7 @@ Route::group([
     Route::group([
         'prefix' => 'codeChallenge',
         'as' => 'codeChallenge.',
-        'middleware' => ['auth'],
+        'middleware' => ['auth','check_verify'],
 
     ], function (){
         Route::post('store', [CodeChallengeSubmissionFrontController::class, 'store'])

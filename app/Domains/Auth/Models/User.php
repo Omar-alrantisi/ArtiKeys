@@ -16,6 +16,7 @@ use App\Domains\Subscription\Models\UserEnglishTest;
 use App\Domains\Subscription\Notifications\VerifyCustomVerification;
 use App\Domains\Subscription\Notifications\VerifyCustomSubscription;
 use App\Domains\Subscription\Services\UserEnglishTestService;
+use App\Models\Exam;
 use DarkGhostHunter\Laraguard\Contracts\TwoFactorAuthenticatable;
 use DarkGhostHunter\Laraguard\TwoFactorAuthentication;
 use Database\Factories\UserFactory;
@@ -80,6 +81,7 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
         'email',
         'phone_number',
         'email_verified_at',
+        'phone_number_verified_at',
         'password',
         'password_changed_at',
         'active',
@@ -109,6 +111,7 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
     protected $dates = [
         'last_login_at',
         'email_verified_at',
+        'phone_number_verified_at',
         'password_changed_at',
     ];
 
@@ -121,6 +124,7 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
         'active' => 'boolean',
         'last_login_at' => 'datetime',
         'email_verified_at' => 'datetime',
+        'phone_number_verified_at' => 'datetime',
         'to_be_logged_out' => 'boolean',
     ];
 
@@ -248,5 +252,10 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
     public function codeChallengeSubmission(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(CodeChallengeSubmission::class);
+    }
+
+    public function exams(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Exam::class);
     }
 }

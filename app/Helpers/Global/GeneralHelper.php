@@ -1,5 +1,6 @@
 <?php
 
+use App\Domains\Auth\Models\User;
 use Carbon\Carbon;
 
 if (! function_exists('appName')) {
@@ -37,20 +38,25 @@ if (! function_exists('homeRoute')) {
      */
     function homeRoute()
     {
+        /** @var User $user */
+        $user = auth()->user();
         if (auth()->check()) {
-            if (auth()->user()->isAdmin()) {
+            if (auth()->user()->type==="admin") {
                 return 'admin.dashboard';
             }
 
-            if (auth()->user()->isUser()) {
-                if(auth()->user()->email_verified_at==null){
+            if (auth()->user()->type==="user") {
+                if (!auth()->user()->email_verified_at) {
                     return 'frontend.frontSubscription.emailVerification.index';
                 }
-                elseif(!isset(auth()->user()->subscription)){
-                    return 'frontend.frontSubscription.subscribe.index';
+
+                if (!auth()->user()->phone_number_verified_at) {
+                    return 'frontend.frontSubscription.mobileVerification.index';
                 }
 
-                else{
+                if(!isset(auth()->user()->subscription)) {
+                    return 'frontend.frontSubscription.subscribe.index';
+                } else{
                     return 'frontend.frontSubscription.confirmation.index';
                 }
             }

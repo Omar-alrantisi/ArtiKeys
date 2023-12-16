@@ -50,8 +50,7 @@ class UserEnglishTestFrontController extends Controller
      */
     public function index()
     {
-        return view('frontend.english-test')
-            ->withUsers($this->userService->getById(auth()->id()));
+        return redirect()->route('frontend.frontSubscription.englishTest.exam.form');
 
     }
 

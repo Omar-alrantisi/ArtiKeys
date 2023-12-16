@@ -5,7 +5,11 @@ namespace App\Domains\Lookups\Http\Controllers\Backend;
 use App\Domains\Lookups\Http\Requests\Backend\CountryRequest;
 use App\Domains\Lookups\Models\Country;
 use App\Domains\Lookups\Services\CountryService;
+use App\Exceptions\GeneralException;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class CountryController extends Controller
 {
@@ -21,7 +25,7 @@ class CountryController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -29,7 +33,7 @@ class CountryController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -38,10 +42,7 @@ class CountryController extends Controller
 
     /**
      * @param CountryRequest $request
-     * @param Country $country
      * @return mixed
-     * @throws \App\Exceptions\GeneralException
-     * @throws \Throwable
      */
     public function store(CountryRequest $request)
     {
@@ -65,7 +66,7 @@ class CountryController extends Controller
      * @param CountryRequest $request
      * @param $country
      * @return mixed
-     * @throws \App\Exceptions\GeneralException
+     * @throws GeneralException
      * @throws \Throwable
      */
     public function update(CountryRequest $request, $country)
@@ -78,7 +79,7 @@ class CountryController extends Controller
     /**
      * @param $country
      * @return mixed
-     * @throws \App\Exceptions\GeneralException
+     * @throws GeneralException
      * @throws \Throwable
      */
     public function destroy($country)

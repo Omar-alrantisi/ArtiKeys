@@ -75,11 +75,11 @@ Don't fret! You have the flexibility to log in as many times as you need. You ca
                     <h5 class="card-title">Your Section</h5>
                     <p class="card-text">To unlock the power of your application, conquer each of the sections below. Your journey to success begins by conquering these challenges, paving the way for your application's triumphant submission.</p>
                     <div class="row">
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
                             <a href="{{route('frontend.frontSubscription.subscribeInfo.index')}}">
-                            <div class="card text-dark bg-light">
+                            <div class="card text-dark bg-light h-100">
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center">
+                                    <div class="d-flex align-items-center justify-content-between">
                                         <i style="font-size: 50px" class="fas fa-id-card-alt" aria-hidden="true"></i>
 
                                         <div class="mx-5">
@@ -100,12 +100,12 @@ Don't fret! You have the flexibility to log in as many times as you need. You ca
                             </div>
                             </a>
                         </div>
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
                             <a href="{{route('frontend.frontSubscription.personalQuestion.index')}}">
 
-                            <div class="card text-dark bg-light">
+                            <div class="card text-dark bg-light h-100">
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center">
+                                    <div class="d-flex align-items-center justify-content-between">
                                         <i style="font-size: 50px" class="fas fa-lightbulb"></i>
                                         <div class="mx-5">
                                             <h6 class="card-title">Coding Insights</h6>
@@ -117,7 +117,7 @@ Don't fret! You have the flexibility to log in as many times as you need. You ca
                                         @if(isset($users->personalQuestion))
                                             <div class=""><i class="fas fa-check-circle text-success"></i> Completed</div>
                                         @else
-                                            <div class=""><i class="fas fa-circle text-danger"></i> Not Started</div>
+                                            <div class=""><i class="fas fa-circle text-danger mt-4"></i> Not Started</div>
                                         @endif
 
                                     </div>
@@ -125,12 +125,12 @@ Don't fret! You have the flexibility to log in as many times as you need. You ca
                             </div>
                             </a>
                         </div>
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
                             <a href="{{route('frontend.frontSubscription.englishTest.index')}}">
 
-                                <div class="card text-dark bg-light">
+                                <div class="card text-dark bg-light h-100">
                                     <div class="card-body">
-                                        <div class="d-flex align-items-center">
+                                        <div class="d-flex align-items-center justify-content-between">
                                             <i style="font-size: 50px" class="fas fa-language"></i>
                                             <div class="mx-5">
                                                 <h6 class="card-title">Language Proficiency Challenge</h6>
@@ -140,7 +140,7 @@ Don't fret! You have the flexibility to log in as many times as you need. You ca
                                         <div class="d-flex justify-content-between">
 
                                             <i class=""></i>
-                                            @if(isset($users->userEnglishTest))
+                                            @if(isset($users->exams))
                                                 <div class=""><i class="fas fa-check-circle text-success"></i> Completed</div>
                                             @else
                                                 <div class=""><i class="fas fa-circle text-danger"></i> Not Started</div>
@@ -150,12 +150,12 @@ Don't fret! You have the flexibility to log in as many times as you need. You ca
                                 </div>
                             </a>
                         </div>
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
                             <a href="{{route('frontend.frontSubscription.codeChallenge.index')}}">
 
-                                <div class="card text-dark bg-light">
+                                <div class="card text-dark bg-light h-100">
                                     <div class="card-body">
-                                        <div class="d-flex align-items-center">
+                                        <div class="d-flex align-items-center justify-content-between">
                                             <i style="font-size: 50px"  class="fas fa-laptop-code"></i>
                                             <div class="mx-5">
                                                 <h6 class="card-title">Code Mastery Journey</h6>
@@ -184,24 +184,5 @@ Don't fret! You have the flexibility to log in as many times as you need. You ca
         </div>
     </div>
 
-    <div class="row">
-
-        <div class="col-md-4">
-            <div class="card">
-                <div class="icon">
-                    <!-- Place your icon here -->
-                </div>
-                <div class="content">
-                    <h2 class="title">Card Title</h2>
-                    <p class="description">Card description goes here. Make it concise.</p>
-                    <div class="status">Status: Active</div>
-                </div>
-                <div class="entry-button">
-                    <a href="#" class="btn">Enter</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
 
 @endsection

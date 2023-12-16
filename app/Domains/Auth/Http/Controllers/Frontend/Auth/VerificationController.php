@@ -42,6 +42,6 @@ class VerificationController
     {
         return $request->user()->hasVerifiedEmail()
             ? redirect()->route('frontend.frontSubscription.confirmation.index')
-            : view('frontend.auth.verify');
+            : view('z');
     }
 }

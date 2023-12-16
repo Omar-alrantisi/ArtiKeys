@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExamController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TermsController;
 use App\Http\Controllers\Frontend\HelpController;
@@ -27,3 +28,9 @@ Route::get('help', [HelpController::class, 'index'])
         $trail->parent('frontend.index')
             ->push(__('Help'), route('frontend.pages.help'));
     });
+
+
+//Route::get('/exam', [ExamController::class, 'showExamForm'])->name('exam.form');
+//Route::post('/exam/submit', [ExamController::class, 'submitExam'])->name('exam.submit');
+//Route::get('/exam/result/{exam}', [ExamController::class, 'showResult'])->name('exam.result');
+

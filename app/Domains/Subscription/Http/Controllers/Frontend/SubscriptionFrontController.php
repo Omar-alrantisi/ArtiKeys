@@ -12,6 +12,8 @@ use App\Http\Controllers\Controller;
 use App\Mail\VerificationCodeMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Http;
+
 
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\Auth;
@@ -102,6 +104,7 @@ class SubscriptionFrontController extends Controller
 
         return response()->json(['message' => 'User not found.'], 404);
     }
+
     public function mobileVerificationIndex()
     {
         // Get the authenticated user
@@ -111,28 +114,95 @@ class SubscriptionFrontController extends Controller
             return redirect()->route('login')->with('error', 'User not authenticated.');
         }
 
-//        $firebase = (new Factory)
-//            ->withServiceAccount(config('services.firebase.credentials.file'))
-//            ->create();
+        $authToken = $this->getOrangeIntegrationToken();
 
-//        $auth = $firebase->getAuth();
+        if(!$authToken){
+            return redirect()->route('login')->with('error',);
+        }
 
-        $phoneNumber = $user->phone_number; // Replace with the actual field storing the user's phone number
-        $verificationCode = mt_rand(1000, 9999);
+        // Send the verification code via the Orange Bulk SMS API
+        $response = Http::withHeaders([
+            'Connection' => 'keep-alive',
+            'Accept-Encoding' => 'gzip, deflate, br',
+            'integration_token' => $authToken,
+        ])->post('https://orangebulksms.orange.jo/api/job/2fa/send', [
+            'to' => $user->phone_number, // Replace with the actual field storing the user's phone number
+            'body' => "Hello, please use code: {code} to confirm registration",
+            'from' => 'Mujaddidun',
+            'service' => 'test the orange',
+        ]);
 
-        // Send the verification code via Firebase Realtime Database or Firestore
-//        $database = $firebase->getDatabase();
 
-        // You can save the verification code with a unique key associated with the user's ID
-//        $database->getReference("verification_codes/{$user->id}")->set($verificationCode);
-//
-//        // Use Firebase's phone number authentication to send the verification code to the user
-//        $auth->startVerification($phoneNumber, [
-//            'code' => $verificationCode,
-//        ]);
 
-        return view('frontend.verification-mobile', ['user' => $user])->with('success', 'Verification code sent successfully.');
+        // Check if the request was successful
+        if ($response->successful()) {
+
+            $responseData = $response->json();
+            // Save the verification code and request ID in the database or session for later verification
+            $request_id = $responseData['requestID'];
+            // Save $verificationCode and $verificationRequestId in your storage mechanism (e.g., database, session)
+
+            return view('frontend.verification-mobile', compact('user','request_id','authToken'))
+                ->with('success', 'Verification code sent successfully.');
+        } else {
+            // Handle the case when the SMS sending fails
+            return redirect()->back()->with('error', 'Failed to send verification code.');
+        }
     }
+
+    public function checkVerificationCode(Request $request)
+    {
+        /** @var User $user */
+        $user = User::find(auth()->user()->id);
+
+        $request_id = $request->input('request_id');
+        $code = $request->input('verification_code');
+        $authToken = $request->input('authToken');
+
+        // Check the verification code using the Orange Bulk SMS API
+        $response = Http::withHeaders([
+            'Connection' => 'keep-alive',
+            'Accept-Encoding' => 'gzip, deflate, br',
+            'integration_token' => $authToken,
+        ])->post('https://orangebulksms.orange.jo/api/job/2fa/verify', [
+            'requestId' => $request_id,
+            'code' => $code,
+        ]);
+
+        // Check if the request was successful
+        if ($response->json()['code']===200) {
+            $user->update(["phone_number_verified_at" =>now()]);
+
+            // Verification successful
+            return redirect()->route('frontend.frontSubscription.subscribe.index')->with('success', 'Verification successful.');
+        } else {
+            // Verification failed
+            return view('frontend.verification-mobile', compact('user','request_id','authToken'))
+                ->with('error', 'Invalid verification code.');
+        }
+    }
+
+    private function getOrangeIntegrationToken()
+    {
+        // Make a request to the Orange Bulk SMS API to get the integration token
+        $response = Http::withHeaders([
+            'Connection' => 'keep-alive',
+            'Accept-Encoding' => 'gzip, deflate, br',
+            'username' => 'Mujaddidun',
+            'password' => 'Orange@2024',
+        ])->post('https://orangebulksms.orange.jo/api/user/generateIntegrationToken');
+
+        // Check if the request was successful
+        if ($response->successful()) {
+            $responseData = $response->json()["result"];
+            return $responseData["integrationToken"];
+        } else {
+            // Handle the case when getting the integration token fails
+            // You might want to log the error or throw an exception
+            return null;
+        }
+    }
+
     public function indexConfirmation()
     {
         return view('frontend.confirmation')
