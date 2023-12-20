@@ -13,7 +13,7 @@ class ExamController extends Controller
     {
         // Check if the user has already taken an exam
         if (auth()->user()->exams()->count() > 0) {
-            return redirect()->route('frontend.exam.result', ['exam' => auth()->user()->exams->first()]);
+            return redirect()->route('frontend.frontSubscription.englishTest.exam.result', ['exam' => auth()->user()->exams->first()]);
         }
 
         $easyQuestions = Test::where('category', 'easy')->inRandomOrder()->limit(10)->get();
@@ -31,7 +31,7 @@ class ExamController extends Controller
     {
         // Check if the user has already taken an exam
         if (auth()->user()->exams()->count() > 0) {
-            return redirect()->route('frontend.exam.result', ['exam' => auth()->user()->exams->first()]);
+            return redirect()->route('frontend.frontSubscription.englishTest.exam.result', ['exam' => auth()->user()->exams->first()]);
         }
 
         try {
@@ -51,7 +51,7 @@ class ExamController extends Controller
             $score = $this->calculateScore($exam);
             $exam->update(['score' => $score]);
 
-            return redirect()->route('frontend.exam.result', ['exam' => $exam]);
+            return redirect()->route('frontend.frontSubscription.englishTest.exam.result', ['exam' => $exam]);
 
         } catch (ValidationException $exception) {
             // Handle validation failure
