@@ -2,7 +2,11 @@
 
 namespace App\Domains\Auth\Http\Controllers\Frontend\Auth;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 /**
@@ -36,12 +40,12 @@ class VerificationController
     /**
      * Show the email verification notice.
      * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+     * @return Application|Factory|View|RedirectResponse
      */
     public function show(Request $request)
     {
         return $request->user()->hasVerifiedEmail()
             ? redirect()->route('frontend.frontSubscription.confirmation.index')
-            : view('z');
+            : view('frontend.auth.verify');
     }
 }

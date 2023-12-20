@@ -14,7 +14,7 @@
                     icon="c-icon cil-plus"
                     class="card-header-action"
                     :href="route('admin.lookups.tests.create')"
-                    :text="__('Create Country')"
+                    :text="__('Create Question')"
                 />
             </x-slot>
         @endif
