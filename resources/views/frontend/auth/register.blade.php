@@ -46,6 +46,7 @@
                         </div>
                     </div>
                     <p id="pass_message"></p>
+                    <div id="pass_help" class="form-text">Password should be between 6-18 characters.</div>
                 </div>
 
                 <div class="col-md-4 mb-3 form-check">

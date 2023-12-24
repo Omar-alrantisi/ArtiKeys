@@ -3,7 +3,6 @@
     use App\Domains\Auth\Models\Exam;
 @endphp
 
-
 @extends('frontend.includes.main')
 @section('body')
     @section('home')
@@ -11,21 +10,21 @@
     @endsection
 
     <div class="container mt-5">
-        <h4 class=" mt-5">English Test</h4>
+        <h4 class="mt-5">English Test</h4>
         <h5>Learning a language allows people to grow. Once rooted, they can take a step towards others.</h5>
         <div class="row justify-content-center my-5">
-            <div class="col-md-8 ">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h1>Your English Test Result</h1>
+                        <h1>Thank You for Taking the English Test!</h1>
                     </div>
                     <div class="card-body">
                         <p><strong>E-mail:</strong> {{ $exam->user->email }}</p>
-                        <p><strong>Score:</strong> {{ $exam->score }} / {{ $exam->questions->count() }}</p>
 
-                        {{-- Additional Details or Options --}}
+                        {{-- Encourage the user to complete their profile --}}
                         <div class="mt-4">
-                            {{-- Add more details or options here --}}
+                            <p>Complete your Application Now!.</p>
+                            {{-- You can add more details or options here --}}
                         </div>
 
                         {{-- Example: Go back to home --}}
@@ -36,7 +35,3 @@
         </div>
     </div>
 @endsection
-
-
-
-

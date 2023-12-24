@@ -53,6 +53,11 @@
                     <i class="fas fa-user-plus"></i> Don't Have an Account? Sign Up
                 </a>
             </div>
+            <div class="col-md-3">
+                <a href="{{ route('frontend.auth.password.request') }}" class="btn btn1 btn-secondary centered-button">
+                    <i class="fas fa-passport"></i> Forgot Your Password?
+                </a>
+            </div>
         </div>
 
     </form>

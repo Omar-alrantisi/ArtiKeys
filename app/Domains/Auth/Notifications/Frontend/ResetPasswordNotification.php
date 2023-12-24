@@ -50,10 +50,11 @@ class ResetPasswordNotification extends Notification
         return (new MailMessage)
             ->subject(__('Reset Password Notification'))
             ->
-            view('mail.subscription.verification', [
+            view('emails.resetPasswordEmail', [
                 'subject'=>__('Reset Password Notification'),
                 'subText' => __('You are receiving this email because we received a password reset request for your account.'),
-                'action' =>  __('Reset Password'), route('frontend.auth.password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()]),
+                'action' =>  __('Reset Password'),
+                "href"=>route('frontend.auth.password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()]),
                 'subText2' => __('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]),
                 'subText3' => __('If you did not request a password reset, no further action is required.')
             ]);

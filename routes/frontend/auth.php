@@ -31,8 +31,7 @@ Route::group(['as' => 'auth.'], function () {
             // E-mail Verification
             Route::get('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
             Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])
-                ->name('verification.verify')
-                ->middleware(['signed', 'throttle:6,1']);
+                ->name('verification.verify');
             Route::post('email/resend', [VerificationController::class, 'resend'])
                 ->name('verification.resend')
                 ->middleware('throttle:6,1');
