@@ -212,11 +212,12 @@
                             <!-- Submit Button -->
                             <div class="text-center mt-4">
                                 <a href="{{route('frontend.frontSubscription.confirmation.index')}}">
-                                <span class="btn btn1 btn-primary btn-sm w-25 mt-5 pt-3">
-                                    <i class="fas fa-home"></i> Go Home
-                                </span>
+                                <div class="btn btn1 btn-primary btn-sm w-25 mt-5  d-flex justify-content-center align-items-center">
+                                    <i class="fas fa-home"></i>
+                                    <strong class="mx-2"> Profile</strong>
+                                </div>
                                 </a>
-                                <button id="signup_btn" type="submit" class="btn btn1 btn-primary btn-sm w-25 mt-5 @if(isset($users->subscriptionInfo)) @endif">
+                                <button id="signup_btn" type="submit" class="btn btn1 btn-primary btn-sm w-25 mt-2 @if(isset($users->subscriptionInfo)) @endif">
                                     <i class="fas fa-save"></i> Save & Continue
                                 </button>
 
