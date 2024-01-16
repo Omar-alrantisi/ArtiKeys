@@ -29,11 +29,13 @@
             <div class="col-lg-8">
                 <div class="card border-primary shadow"> <!-- Added shadow -->
                     <div class="card-body confirmation-card">
-                        <h3 class="card-title mt-2" style="color: #002FC2;">Welcome, {{ explode(' ', $users->subscription->name_en)[0] }}!</h3>
-                        <div class="d-flex justify-content-center text-left">
+                        <div class="d-flex justify-content-center align-items-center">
                             @if(isset($users->subscription->personal_image))
                                 <img src="{{url('storage/subscription/personal_images/'.$users->subscription->personal_image)}}" alt="Profile Image" class="rounded-circle" width="150">
                             @endif
+                                <h3 class="card-title mt-2" style="color: #002FC2;">Welcome, {{ explode(' ', $users->subscription->name_en)[0] }}!</h3>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center text-left">
                                 <div class="mb-2">
                                     <i class="fas fa-envelope" style="margin-right: 10px;"></i>
                                     <span>Email:</span> {{$users->email}}
