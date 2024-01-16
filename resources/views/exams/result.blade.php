@@ -19,7 +19,6 @@
                         <h1>Thank You for Taking the English Test!</h1>
                     </div>
                     <div class="card-body">
-                        <p><strong>E-mail:</strong> {{ $exam->user->email }}</p>
 
                         {{-- Encourage the user to complete their profile --}}
                         <div class="mt-4">
