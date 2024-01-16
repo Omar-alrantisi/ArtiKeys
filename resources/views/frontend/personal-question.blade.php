@@ -11,8 +11,8 @@
                     @include('includes.partials.messages')
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="about_user" class="form-label mt-3">1.Tell us about your self<span>*</span></label>
-                            <textarea @if(isset($users->personalQuestion))  disabled @endif name="about_user" id="about_user" class="form-control" required>@if(isset($users->personalQuestion))  {{$users->personalQuestion->about_user}} @endif </textarea>
+                            <label for="user_interest_join" class="form-label mt-3">1.Tell us about your self<span>*</span></label>
+                            <textarea @if(isset($users->personalQuestion))  disabled @endif name="about_user" id="about_user" class="form-control" required>@if(isset($users->personalQuestion))  {{$users->personalQuestion->about_user}} @endif</textarea>
                         </div>
                         <div class="col-md-12">
                             <label for="user_interest_join" class="form-label mt-3">2.why you interested in joining<span>*</span></label>
