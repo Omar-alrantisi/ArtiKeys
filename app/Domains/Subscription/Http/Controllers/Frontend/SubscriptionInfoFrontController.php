@@ -64,11 +64,11 @@ class SubscriptionInfoFrontController extends Controller
         if(!empty($user->subscriptionInfo)){
             $subscriptionInfo=SubscriptionInfo::query()->where('user_id',$user_id)->firstOrFail();
             $this->subscriptionInfoService->update($subscriptionInfo->id, $request->validated());
-            return redirect()->back()->withFlashSuccess(__('The slider was successfully updated'));
+            return redirect()->back()->withFlashSuccess(__('The Identity Info was successfully updated'));
         }
         else{
             $this->subscriptionInfoService->store($request->validated());
-            return redirect()->route('frontend.frontSubscription.confirmation.index')->withFlashSuccess(__('The slider was successfully updated'));
+            return redirect()->route('frontend.frontSubscription.confirmation.index')->withFlashSuccess(__('The Identity Info was successfully updated'));
         }
 
 
