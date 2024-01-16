@@ -46,19 +46,6 @@
                         <div id="emailHelp" class="form-text">e.g., username@domain.com</div>
                     </div>
                     <div class="col-md-4 mb-3"></div>
-                    <div class="col-md-4 mb-3">
-                        <div class="input-group">
-                            <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top"
-                                  title="Enter your email address">
-                                <i class="fas fa-envelope "></i>
-                            </span>
-                            <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="email"
-                                   aria-describedby="emailHelp" placeholder="Email address" required>
-                        </div>
-                        <p id="email_message"></p>
-                        <div id="emailHelp" class="form-text">e.g., username@domain.com</div>
-                    </div>
-                    <div class="col-md-4 mb-3"></div>
                     <div class="col-md-4 mb-3"></div>
                     <div class="col-md-4 mb-3">
                         <div class="input-group">
@@ -72,6 +59,7 @@
                         <p id="message_mobile"></p>
                         <div id="mobileHelp" class="form-text">e.g., 077********</div>
                     </div>
+                    <div class="col-md-4 mb-3"></div>
                     <div class="col-md-4 mb-3"></div>
                     <div class="col-md-4 mb-3"></div>
                     <div class="col-md-4 mb-3">
@@ -103,6 +91,8 @@
                         <p id="check_terms_message"></p>
                     </div>
                     <div class="col-md-4 mb-3"></div>
+                    <div class="col-md-4 mb-3"></div>
+
                     <div class="row">
                         <div class="col-md-4 mb-3"></div>
                         <div class="col-md-4">
