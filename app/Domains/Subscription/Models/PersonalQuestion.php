@@ -33,7 +33,7 @@ class PersonalQuestion extends BaseModel
     /**
      * @var array
      */
-    protected $fillable = ['created_by_id','updated_by_id','user_id', 'user_benefit','user_after_5_years', 'created_at', 'updated_at', 'user_web_skills','successful_developer','developer_do','user_interest_join','about_user'];
+    protected $fillable = ['created_by_id','updated_by_id','user_id', 'user_benefit','user_after_5_years', 'created_at', 'updated_at', 'use_web_skills','successful_developer','developer_do','user_interest_join','about_user'];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

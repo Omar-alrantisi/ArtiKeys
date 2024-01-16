@@ -35,7 +35,7 @@
                             <textarea @if(isset($users->personalQuestion))  disabled @endif name="successful_developer" id="successful_developer" class="form-control" required>@if(isset($users->personalQuestion))  {{$users->personalQuestion->successful_developer}} @endif</textarea>
                         </div>
                         <div class="col-md-12">
-                            <label for="user_web_skills" class="form-label mt-3">7.How will you use your web development skills after the end of the training <span>*</span></label>
+                            <label for="use_web_skills" class="form-label mt-3">7.How will you use your web development skills after the end of the training <span>*</span></label>
                             <textarea @if(isset($users->personalQuestion))  disabled @endif name="use_web_skills" id="use_web_skills" class="form-control" required>@if(isset($users->personalQuestion))  {{$users->personalQuestion->use_web_skills}} @endif</textarea>
                         </div>
                         <div class="col-md-12">
