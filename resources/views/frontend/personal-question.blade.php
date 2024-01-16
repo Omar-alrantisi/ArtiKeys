@@ -35,15 +35,15 @@
                             <textarea @if(isset($users->personalQuestion))  disabled @endif name="successful_developer" id="successful_developer" class="form-control" required>@if(isset($users->personalQuestion))  {{$users->personalQuestion->successful_developer}} @endif</textarea>
                         </div>
                         <div class="col-md-12">
-                            <label for="user_web_skills" class="form-label mt-3">8.How will you use your web development skills after the end of the training <span>*</span></label>
-                            <textarea @if(isset($users->personalQuestion))  disabled @endif name="use_web_skills" id="user_web_skills" class="form-control" required>@if(isset($users->personalQuestion))  {{$users->personalQuestion->user_web_skills}} @endif</textarea>
+                            <label for="user_web_skills" class="form-label mt-3">7.How will you use your web development skills after the end of the training <span>*</span></label>
+                            <textarea @if(isset($users->personalQuestion))  disabled @endif name="use_web_skills" id="use_web_skills" class="form-control" required>@if(isset($users->personalQuestion))  {{$users->personalQuestion->use_web_skills}} @endif</textarea>
                         </div>
                         <div class="col-md-12">
-                            <label for="about_user" class="form-label mt-3">9.where do you see yourself in 5 years <span>*</span></label>
+                            <label for="about_user" class="form-label mt-3">8.where do you see yourself in 5 years <span>*</span></label>
                             <textarea @if(isset($users->personalQuestion))  disabled @endif name="user_after_5_years" id="user_after_5_years" class="form-control" required>@if(isset($users->personalQuestion))  {{$users->personalQuestion->user_after_5_years}} @endif</textarea>
                         </div>
                         <div class="col-md-12">
-                            <label for="user_benefit" class="form-label mt-3">10.what benefits would you bring to the third cohort?<span>*</span></label>
+                            <label for="user_benefit" class="form-label mt-3">9.what benefits would you bring to the third cohort?<span>*</span></label>
                             <textarea @if(isset($users->personalQuestion))  disabled @endif name="user_benefit" id="user_benefit" class="form-control" required>@if(isset($users->personalQuestion))  {{$users->personalQuestion->user_benefit}} @endif</textarea>
                         </div>
                     </div>
