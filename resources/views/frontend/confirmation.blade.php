@@ -29,34 +29,31 @@
             <div class="col-lg-8">
                 <div class="card border-primary shadow"> <!-- Added shadow -->
                     <div class="card-body confirmation-card">
-                        <div class="d-flex justify-content-center">
+                        <h3 class="card-title mt-2" style="color: #002FC2;">Welcome, {{ explode(' ', $users->subscription->name_en)[0] }}!</h3>
+                        <div class="d-flex justify-content-center text-left">
                             @if(isset($users->subscription->personal_image))
                                 <img src="{{url('storage/subscription/personal_images/'.$users->subscription->personal_image)}}" alt="Profile Image" class="rounded-circle" width="150">
                             @endif
-                        </div>
-                        <h3 class="card-title mt-3" style="color: #002FC2;">Welcome, {{ explode(' ', $users->subscription->name_en)[0] }}!</h3>
-                        <p class="text-muted mb-4">Your account information:</p>
-                        <ul class="list-unstyled text-left"> <!-- Aligned list items vertically -->
-                            <li class="mb-2">
-                                <i class="fas fa-envelope" style="margin-right: 10px;"></i>
-                                <span>Email:</span> {{$users->email}}
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-mobile-alt" style="margin-right: 10px;"></i>
-                                <span>Mobile:</span> {{$users->phone_number}}
-                            </li>
-                            <li class="mb-2">
-                                <i class="fas fa-user" style="margin-right: 10px;"></i>
-                                <span>ID:</span> {{$users->id}}
-                            </li>
-                            <li class="mb-2">
-{{--                                <i class="fas fa-cogs" style="margin-right: 10px; color: green;">--}}
-                                <i class="fas fa-check-circle" style="margin-right: 10px; color: green;"></i>
+                                <div class="mb-2">
+                                    <i class="fas fa-envelope" style="margin-right: 10px;"></i>
+                                    <span>Email:</span> {{$users->email}}
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-mobile-alt" style="margin-right: 10px;"></i>
+                                    <span>Mobile:</span> {{$users->phone_number}}
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-user" style="margin-right: 10px;"></i>
+                                    <span>ID:</span> {{$users->id}}
+                                </div>
+                                <div class="mb-2">
+                                    {{--                                <i class="fas fa-cogs" style="margin-right: 10px; color: green;">--}}
+                                    <i class="fas fa-check-circle" style="margin-right: 10px; color: green;"></i>
 
-{{--                                </i> <!-- Added a checkmark icon for "In Progress" status -->--}}
-                                <span>Status:</span> In Progress
-                            </li>
-                        </ul>
+                                    {{--                                </i> <!-- Added a checkmark icon for "In Progress" status -->--}}
+                                    <span>Status:</span> In Progress
+                                </div>
+                        </div>
                         <p class="text-center mt-4">
                     <span>
 Don't fret! You have the flexibility to log in as many times as you need. You can work on completing all the requirements at your own pace, ensuring you meet every milestone on your journey to success. Your progress is in your hands, and remember, you still have until [insert deadline date] to complete everything before the deadline!                    </span>
