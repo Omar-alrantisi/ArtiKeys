@@ -82,6 +82,7 @@
                         <div id="pass_help" class="form-text">Password should be between 6-18 characters.</div>
                     </div>
                     <div class="col-md-4 mb-3"></div>
+                    <div class="col-md-4 mb-3"></div>
                     <div class="col-md-4 mb-3 form-check">
                         <input type="checkbox" id="check_terms" required>
                         <label class="form-check-label" for="check_terms">I agree to the <a
@@ -101,7 +102,7 @@
                         <div class="col-md-4 mb-3"></div>
                         <div class="col-md-4 mb-3"></div>
                         <div class="col-md-3">
-                            <a href="{{ route('frontend.auth.login') }}" class="btn btn1 btn-secondary centered-button">
+                            <a href="{{ route('frontend.auth.login') }}">
                                 <i class="fas fa-sign-in-alt"></i> Already Have an Account? Login
                             </a>
                         </div>
