@@ -36,19 +36,19 @@
                                 <h3 class="card-title mt-2" style="color: #002FC2;">Welcome, {{ explode(' ', $users->subscription->name_en)[0] }}!</h3>
                         </div>
                         <div class="d-flex justify-content-center align-items-center text-left">
-                                <div class="mb-2">
+                                <div class="mb-2 mx-1">
                                     <i class="fas fa-envelope" style="margin-right: 10px;"></i>
                                     <span>Email:</span> {{$users->email}}
                                 </div>
-                                <div class="mb-2">
+                                <div class="mb-2 mx-1">
                                     <i class="fas fa-mobile-alt" style="margin-right: 10px;"></i>
                                     <span>Mobile:</span> {{$users->phone_number}}
                                 </div>
-                                <div class="mb-2">
+                                <div class="mb-2 mx-1">
                                     <i class="fas fa-user" style="margin-right: 10px;"></i>
                                     <span>ID:</span> {{$users->id}}
                                 </div>
-                                <div class="mb-2">
+                                <div class="mb-2 mx-1">
                                     {{--                                <i class="fas fa-cogs" style="margin-right: 10px; color: green;">--}}
                                     <i class="fas fa-check-circle" style="margin-right: 10px; color: green;"></i>
 
