@@ -22,7 +22,7 @@
                                 </div>
                             </div><!--form-group-->
 
-                            <div class="form-group row mb-0">
+                            <div class="form-group row mb-0 mt-2">
                                 <div class="col-md-6 offset-md-4">
                                     <button class="btn btn-primary" type="submit">@lang('Send Password Reset Link')</button>
                                 </div>
