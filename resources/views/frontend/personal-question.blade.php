@@ -4,7 +4,7 @@
         active
     @endsection
     <div class="container">
-        <h5 class="card-title">Questionnaire Section</h5>
+        <h5 class="card-title mt-5">Questionnaire Section</h5>
             <form action="{{route('frontend.frontSubscription.personalQuestion.store')}}" method="POST" class="user-info-form" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
