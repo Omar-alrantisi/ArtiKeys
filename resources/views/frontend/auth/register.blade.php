@@ -1,3 +1,8 @@
+@php
+    $websiteSetting = \App\Domains\WebsiteSetting\Models\WebsiteSetting::query()->select('logo', 'favicon', 'main_color')->first();
+    $sliders = \App\Domains\Slider\Models\Slider::query()->where('status', 1)->get();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
