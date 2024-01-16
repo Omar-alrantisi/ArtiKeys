@@ -1,8 +1,9 @@
-@extends('frontend.layouts.app')
+@extends('frontend.includes.main')
 
-@section('title', __('Please confirm your password before continuing.'))
-
-@section('content')
+@section('body')
+    @section('home')
+        active
+    @endsection
     <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
