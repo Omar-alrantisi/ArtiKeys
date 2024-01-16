@@ -21,7 +21,7 @@
 
 </head>
 <body>
-<section class="container-fluid  mb-5 background">
+<section class="container-fluid  mb-5 mt-5 background">
     <div class="col-md-12">
         <div class="intro mt-3">
             <h2 class="text-center">Complete the registration for <span>ArtiKeys</span></h2>
