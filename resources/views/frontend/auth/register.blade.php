@@ -61,7 +61,6 @@
                     </div>
                     <div class="col-md-4 mb-3"></div>
                     <div class="col-md-4 mb-3"></div>
-                    <div class="col-md-4 mb-3"></div>
                     <div class="col-md-4 mb-3">
                         <div class="input-group">
                     <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -82,7 +81,6 @@
                         <p id="pass_message"></p>
                         <div id="pass_help" class="form-text">Password should be between 6-18 characters.</div>
                     </div>
-                    <div class="col-md-4 mb-3"></div>
                     <div class="col-md-4 mb-3"></div>
                     <div class="col-md-4 mb-3 form-check">
                         <input type="checkbox" id="check_terms" required>
