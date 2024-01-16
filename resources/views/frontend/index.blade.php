@@ -43,28 +43,20 @@
             <div class="row people">
                 <div class="col-md-6 col-lg-6 item">
                     <div class="box">
+                        <a href="{{route('frontend.auth.login')}}" class="text-decoration-none">
+
                         <i class="fas fa-sign-in-alt custom-icon"></i>
                         <h3 class="name">Log In</h3>
-                        <p class="description">Welcome back, creative soul! 🎨 Access your Artikeys account and dive into a world of inspiration and learning. Whether you're picking up where you left off or exploring new horizons, your artistic adventure awaits. Log in now to continue your creative odyssey </p>
-                        <a href="{{route('frontend.auth.login')}}" class="text-decoration-none">
-                        <button id="signup_btn" type="submit" class="btn btn-primary btn-lg w-25 mt-4">
-                            <i class="fas fa-arrow-right"></i>
-                            Click here
-                        </button>
                         </a>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-6 item">
                     <div class="box">
+                        <a href="{{route('frontend.auth.register')}}" class="text-decoration-none">
+
                         <i class="fas fa-user-plus custom-icon"></i>
                         <h3 class="name">Register</h3>
-                        <p class="description">Unlock the world of limitless possibilities with a single click! 🚀 Join the Artikeys community today and embark on a journey of creativity and knowledge. It's time to turn your dreams into reality. Register now and let your artistic passions flourish! </p>
-                        <a href="{{route('frontend.auth.register')}}" class="text-decoration-none">
-                        <button id="signup_btn" type="submit" class="btn btn-primary btn-lg w-25 mt-4">
-                            <i class="fas fa-arrow-right"></i>
-                            Click here
-                        </button>
                         </a>
                     </div>
                 </div>
