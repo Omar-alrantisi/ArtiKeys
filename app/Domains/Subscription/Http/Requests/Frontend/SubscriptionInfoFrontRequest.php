@@ -37,6 +37,8 @@ class SubscriptionInfoFrontRequest extends FormRequest
             'hear_about' => ['required'],
             'r_f_n_1' => ['required'],
             'r_f_n_2' => ['required'],
+            'r_r_1' => ['required'],
+            'r_r_2' => ['required'],
             'r_m_n_1' => ['required'],
             'r_m_n_2' => ['required'],
             'full_address' => ['required'],

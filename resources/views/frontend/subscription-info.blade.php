@@ -176,7 +176,7 @@
                                     <select @if(isset($users->subscriptionInfo))   @endif id="r_r_1" name="r_r_1"
                                             class="form-control" required>
                                         <option selected >Select..</option>
-                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1=="father") selected @endif  @endif value='father'>Father</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="father") selected @endif  @endif value='father'>Father</option>
                                     </select>
                                 </div>
 

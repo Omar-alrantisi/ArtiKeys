@@ -33,6 +33,8 @@ class CreateSubscriptionInfosTable extends Migration
             $table->string('hear_about')->nullable();
             $table->string('r_f_n_1')->nullable();
             $table->string('r_f_n_2')->nullable();
+            $table->string('r_r_1')->nullable();
+            $table->string('r_r_2')->nullable();
             $table->string('r_m_n_1')->nullable();
             $table->string('r_m_n_2')->nullable();
             $table->text('full_address')->nullable();
