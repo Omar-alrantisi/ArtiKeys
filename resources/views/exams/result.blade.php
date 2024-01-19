@@ -23,6 +23,10 @@
                         {{-- Encourage the user to complete their profile --}}
                         <div class="mt-4">
                             <p>Complete your Application Now!.</p>
+                            <small>Language Assessment
+                                Mastering a language is a pathway to personal growth. Once established, it becomes a bridge connecting individuals.
+
+                                Appreciate Your Participation in the English Test!</small>
                             {{-- You can add more details or options here --}}
                         </div>
 

@@ -58,7 +58,8 @@
                         </div>
                         <p class="text-center mt-4">
                     <span>
-Don't fret! You have the flexibility to log in as many times as you need. You can work on completing all the requirements at your own pace, ensuring you meet every milestone on your journey to success. Your progress is in your hands, and remember, you still have until [insert deadline date] to complete everything before the deadline!                    </span>
+                        No worries! Log in whenever you want—no limits. Take your time to ace each step on your way to success. Your deadline is [insert deadline date], so relax and best it all!
+                    </span>
                         </p>
                     </div>
                 </div>
@@ -72,7 +73,8 @@ Don't fret! You have the flexibility to log in as many times as you need. You ca
             <div class="col-lg-12">
                 <div class="card bg-primary text-white p-4">
                     <h5 class="card-title">Your Section</h5>
-                    <p class="card-text">To unlock the power of your application, conquer each of the sections below. Your journey to success begins by conquering these challenges, paving the way for your application's triumphant submission.</p>
+                    <p class="card-text">
+                        To unlock the power of your application, beat each of the sections below. Your journey to success begins by overcoming these challenges, paving the way for your application to achieve submission.</p>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <a href="{{route('frontend.frontSubscription.subscribeInfo.index')}}">

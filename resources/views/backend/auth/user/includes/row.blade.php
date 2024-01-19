@@ -1,9 +1,11 @@
+
+
 <x-livewire-tables::bs4.table.cell>
     @include('backend.auth.user.includes.type', ['user' => $row])
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    {{ $row->name }}
+    {{ $row->subscription?$row->subscription->name_en:"" }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>

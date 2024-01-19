@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{{asset("assets/style/bootstrap-5.0.2-dist/css/bootstrap.css")}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 <body>
     <div class="container mt-5">
@@ -99,13 +98,31 @@
             function validateStep(step) {
                 const currentStep = steps[step];
                 const radioInputs = currentStep.querySelectorAll('input[type="radio"]');
-                let isValid = false;
+                let isValid = true;
 
-                radioInputs.forEach(input => {
-                    if (input.checked) {
-                        isValid = true;
+                if (step === 0|| step === 1) {
+                    const answeredQuestions = Array.from(radioInputs).filter(input => input.checked);
+                    if (answeredQuestions.length !== 10) {
+                        isValid = false;
                     }
-                });
+                    console.log(51434)
+                } else {
+                    radioInputs.forEach(input => {
+                        const questionIndex = parseInt(input.name.match(/\[(\d+)\]/)[1]) % 10;
+                        const questionInputs = currentStep.querySelectorAll(`input[name^="question_ids[${questionIndex}]"]`);
+
+                        let isQuestionValid = false;
+                        questionInputs.forEach(questionInput => {
+                            if (questionInput.checked) {
+                                isQuestionValid = true;
+                            }
+                        });
+
+                        if (!isQuestionValid) {
+                            isValid = false;
+                        }
+                    });
+                }
 
                 if (!isValid) {
                     showValidationAlert();
@@ -127,5 +144,6 @@
             }
         });
     </script>
+
 </body>
 </html>

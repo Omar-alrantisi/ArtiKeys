@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer $created_by_id
  * @property integer $city_id
  * @property string $education_level
+ * @property string $educational_status
  * @property string $education_background
  * @property string $created_at
  * @property string $updated_at
@@ -41,7 +42,7 @@ class SubscriptionInfo extends BaseModel
     /**
      * @var array
      */
-    protected $fillable = ['created_by_id','updated_by_id','user_id', 'education_level','field_of_study', 'created_at', 'updated_at', 'education_background', 'arabic_writing','arabic_specking','english_specking','english_writing','r_f_n_1','r_f_n_2','r_m_n_1','r_m_n_2','r_r_1','r_r_2','hear_about','full_address'];
+    protected $fillable = ['created_by_id','updated_by_id','user_id', 'education_level','field_of_study', 'created_at', 'updated_at', 'education_background', 'arabic_writing','arabic_specking','english_specking','english_writing','r_f_n_1','r_f_n_2','r_m_n_1','r_m_n_2','r_r_1','r_r_2','hear_about','full_address','city_id','educational_status'];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

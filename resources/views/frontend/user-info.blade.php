@@ -51,7 +51,7 @@
                     <div class="col-md-3">
                         <input value="{{ old('last_name_en') }}" name="last_name_en" id="last_name_en" type="text" class="form-control mb-2" placeholder="Last Name" required>
                     </div>
-                    <p class="col-md-12">The provided name should match the one on your ID card or official document. If accepted, it will be verified and certified on your graduation certificate.
+                    <p class="col-md-12"> Please ensure that the name provided matches the one on your official ID or document, as it will be verified and certified on your graduation certificate.
                     </p>
                 </div>
                 <!-- Name in Arabic -->
@@ -69,7 +69,7 @@
                     <div class="col-md-3">
                         <input value="{{ old('last_name_ar') }}" name="last_name_ar" id="last_name_ar" type="text" class="form-control mb-2" placeholder="Last Name" required>
                     </div>
-                    <p class="col-md-12">The provided name should match the one on your ID card or official document. If accepted, it will be verified and certified on your graduation certificate.
+                    <p class="col-md-12"> Please ensure that the name provided matches the one on your official ID or document, as it will be verified and certified on your graduation certificate.
                     </p>
                 </div>
                 <!-- Gender and Marital Status -->
@@ -88,6 +88,8 @@
                             <option selected disabled>Select..</option>
                             <option {{ old('marital_status') == 1 ? 'selected' : '' }} value="1">Married</option>
                             <option {{ old('marital_status') == 2 ? 'selected' : '' }} value="2">Single</option>
+                            <option {{ old('marital_status') == 3 ? 'selected' : '' }} value="3">Divorced</option>
+                            <option {{ old('marital_status') == 4 ? 'selected' : '' }} value="4">Widowed</option>
                         </select>
                     </div>
                 </div>
@@ -95,7 +97,7 @@
                 <div class="mb-3">
                     <label for="personal_image" class="form-label">Upload Your Personal Image <span>*</span></label>
                     <input id="personal_image" name="personal_image" type="file" class="form-control" required accept="image/*">
-                    <p>Acceptable formats for images: .jpg, .jpeg, .png. Please ensure that the image size does not exceed 2MB.
+                    <p> Image formats must be in .jpg, .jpeg, or .png, and please ensure the file size is below 2MB.
                     </p>
                 </div>
                 <!-- Save & Continue Button -->

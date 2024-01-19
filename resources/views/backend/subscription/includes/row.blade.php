@@ -205,6 +205,10 @@ $logged_in_user->hasAllAccess() ||
                                 <td>{{$row->user->subscriptionInfo->education_level??""}}</td>
                             </tr>
                             <tr>
+                                <th scope="row">Educational Status</th>
+                                <td>{{$row->user->subscriptionInfo->educational_status??""}}</td>
+                            </tr>
+                            <tr>
                                 <th scope="row">Field of study</th>
                                 <td>{{$row->user->subscriptionInfo->field_of_study??""}}</td>
                             </tr>

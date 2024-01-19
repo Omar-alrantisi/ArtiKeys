@@ -3,6 +3,7 @@ namespace App\Domains\Subscription\Http\Controllers\Frontend;
 
 use App\Domains\Auth\Models\User;
 use App\Domains\Auth\Services\UserService;
+use App\Domains\Lookups\Models\City;
 use App\Domains\Lookups\Services\CityService;
 use App\Domains\Subscription\Http\Requests\Frontend\SubscriptionFrontRequest;
 use App\Domains\Subscription\Http\Requests\Frontend\SubscriptionInfoFrontRequest;
@@ -51,7 +52,9 @@ class SubscriptionInfoFrontController extends Controller
      */
     public function index()
     {
+        $cities = City::all();
         return view('frontend.subscription-info')
+            ->with(['cities'=>$cities])
             ->withUsers($this->userService->getById(auth()->id()));
 
     }

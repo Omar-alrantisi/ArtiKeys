@@ -34,7 +34,12 @@
                                     <select @if(isset($users->subscriptionInfo))  @endif id="education_level"
                                             name="education_level" class="form-control" required>
                                         <option selected >Select..</option>
-                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_level=='bachelor') selected @endif  @endif value='bachelor'>Bachelor</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_level==='bachelor') selected @endif  @endif value='bachelor'>Bachelor's Degree</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_level==='High School (Tawjihi)') selected @endif  @endif value='High School (Tawjihi)'>High School (Tawjihi)</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_level==='High Diploma Degree') selected @endif  @endif value='High Diploma Degree'>High Diploma Degree</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_level==='Masters Degree') selected @endif  @endif value='Masters Degree'>Master's Degree</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_level==='Doctorate/Ph.D') selected @endif  @endif value='Doctorate/Ph.D'>Doctorate/Ph.D</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_level==='Vocational/Technical Training') selected @endif  @endif value='Vocational/Technical Training'>Vocational/Technical Training</option>
                                     </select>
                                 </div>
 
@@ -50,8 +55,9 @@
                                     <select @if(isset($users->subscriptionInfo))  @endif id="educational_status"
                                             name="educational_status" class="form-control" required>
                                         <option selected >Select..</option>
-                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->educational_status=="graduated") selected @endif  @endif value='graduated'>Graduate</option>
-                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->educational_status=="under_graduate") selected @endif  @endif value='under_graduate'>Under Graduate</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->educational_status==="graduated") selected @endif  @endif value='graduated'>Graduate</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->educational_status==="Currently Enrolled") selected @endif  @endif value='Currently Enrolled'>Currently Enrolled</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->educational_status==="Not Currently Enrolled") selected @endif  @endif value='Not Currently Enrolled'>Not Currently Enrolled</option>
                                     </select>
                                 </div>
 
@@ -61,8 +67,16 @@
                                     <select @if(isset($users->subscriptionInfo))  @endif id="education_background"
                                             name="education_background" class="form-control" required>
                                         <option selected >Select..</option>
-                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_background=="it_background") selected @endif  @endif value='it_background'>IT background</option>
-                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_background=="non_it_background") selected @endif  @endif value='non_it_background'>Non IT background</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_background==="IT/Computing") selected @endif  @endif value='IT/Computing'>IT/Computing</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_background==="Engineering") selected @endif  @endif value='Engineering'>Engineering</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_background==="Humanities") selected @endif  @endif value='Humanities'>Humanities</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_background==="Social Sciences") selected @endif  @endif value='Social Sciences'>Social Sciences</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_background==="Business Administration") selected @endif  @endif value='Business Administration'>Business Administration</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_background==="Fine Arts") selected @endif  @endif value='Fine Arts'>Fine Arts</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_background==="Health Sciences") selected @endif  @endif value='Health Sciences'>Health Sciences</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_background==="Natural Sciences") selected @endif  @endif value='Natural Sciences'>Natural Sciences</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_background==="Education") selected @endif  @endif value='Education'>Education</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->education_background==="other") selected @endif  @endif value='other'>Other</option>
                                     </select>
                                 </div>
                             </section>
@@ -121,10 +135,10 @@
                                     <select @if(isset($users->subscriptionInfo))  @endif id="english_speaking"
                                             name="english_specking" class="form-control" required>
                                         <option selected >Select..</option>
-                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->english_specking=="poor") selected @endif  @endif value='poor'>Poor</option>
-                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->english_specking=="good") selected @endif  @endif value='good'>Good</option>
-                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->english_specking=="very_good") selected @endif  @endif value='very_good'>Very good</option>
-                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->english_specking=="fluent") selected @endif  @endif value='fluent'>Fluent</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->english_specking==="poor") selected @endif  @endif value='poor'>Poor</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->english_specking==="good") selected @endif  @endif value='good'>Good</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->english_specking==="very_good") selected @endif  @endif value='very_good'>Very good</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->english_specking==="fluent") selected @endif  @endif value='fluent'>Fluent</option>
                                     </select>
                                 </div>
                             </section>
@@ -136,10 +150,13 @@
                                 <!-- Current City -->
                                 <div class="mb-3">
                                     <label for="city_id" class="form-label">Current City <span>*</span></label>
-                                    <select @if(isset($users->subscriptionInfo))  @endif id="city_id" name="city_id"
-                                            class="form-control" required>
-                                        <option selected >Select..</option>
-                                        <option @if(isset($users->subscriptionInfo)) selected @endif value='1'>Amman</option>
+                                    <select id="city_id" name="city_id" class="form-control" required>
+                                        <option value="1" disabled>Select..</option>
+                                        @foreach($cities as $city)
+                                            <option value="{{ $city->id }}" {{ (isset($users->subscriptionInfo) && $users->subscriptionInfo->city_id == $city->id) ? 'selected' : '' }}>
+                                                {{ $city->name }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -155,7 +172,11 @@
                                     <select @if(isset($users->subscriptionInfo))  @endif id="hear_about" name="hear_about"
                                             class="form-control" required>
                                         <option selected >Select..</option>
-                                        <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about=='media') selected @endif  @endif value='media'>Media</option>
+                                        <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about==='Mujaddidun') selected @endif  @endif value='Mujaddidun'>Mujaddidun</option>
+                                        <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about==='Applied Science Private University') selected @endif  @endif value='Applied Science Private University'>Applied Science Private University</option>
+                                        <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about==='National Aid Fund') selected @endif  @endif value='National Aid Fund'>National Aid Fund</option>
+                                        <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about==='Friend or Family Referral') selected @endif  @endif value='Friend or Family Referral'>Friend or Family Referral</option>
+                                        <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about==='Social Media') selected @endif  @endif value='Social Media'>Social Media</option>
                                     </select>
                                 </div>
                             </section>
@@ -175,8 +196,19 @@
                                     <label for="r_r_1" class="form-label">Select Relation <span>*</span></label>
                                     <select @if(isset($users->subscriptionInfo))   @endif id="r_r_1" name="r_r_1"
                                             class="form-control" required>
-                                        <option selected >Select..</option>
-                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="father") selected @endif  @endif value='father'>Father</option>
+                                        <option selected disabled>Select..</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="Father") selected @endif  @endif value="Father">Father</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="Mother") selected @endif  @endif value="Mother">Mother</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="Sibling") selected @endif  @endif value="Sibling">Sibling</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="Spouse") selected @endif  @endif value="Spouse">Spouse</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="Grandparent") selected @endif  @endif value="Grandparent">Grandparent</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="Aunt/Uncle") selected @endif  @endif value="Aunt/Uncle">Aunt/Uncle</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="Cousin") selected @endif  @endif value="Cousin">Cousin</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="Father-in-law") selected @endif  @endif value="Father-in-law">Father-in-law</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="Mother-in-law") selected @endif  @endif value="Mother-in-law">Mother-in-law</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="Friend") selected @endif  @endif value="Friend">Friend</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_1==="Other Relative") selected @endif  @endif value="Other Relative">Other Relative</option>
+
                                     </select>
                                 </div>
 
@@ -197,8 +229,19 @@
                                     <label for="r_r_2" class="form-label">Select Relation <span>*</span></label>
                                     <select @if(isset($users->subscriptionInfo))   @endif id="r_r_2" name="r_r_2"
                                             class="form-control" required>
-                                        <option selected >Select..</option>
-                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_2=="father") selected @endif  @endif value='father'>Father</option>
+                                        <option selected disabled>Select..</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_2==="Father") selected @endif  @endif value="Father">Father</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_2==="Mother") selected @endif  @endif value="Mother">Mother</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_2==="Sibling") selected @endif  @endif value="Sibling">Sibling</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_2==="Spouse") selected @endif  @endif value="Spouse">Spouse</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_2==="Grandparent") selected @endif  @endif value="Grandparent">Grandparent</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_2==="Aunt/Uncle") selected @endif  @endif value="Aunt/Uncle">Aunt/Uncle</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_2==="Cousin") selected @endif  @endif value="Cousin">Cousin</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_2==="Father-in-law") selected @endif  @endif value="Father-in-law">Father-in-law</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_2==="Mother-in-law") selected @endif  @endif value="Mother-in-law">Mother-in-law</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_2==="Friend") selected @endif  @endif value="Friend">Friend</option>
+                                        <option @if(isset($users->subscriptionInfo)) @if($users->subscriptionInfo->r_r_2==="Other Relative") selected @endif  @endif value="Other Relative">Other Relative</option>
+
                                     </select>
                                 </div>
 

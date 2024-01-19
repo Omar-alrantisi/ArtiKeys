@@ -24,6 +24,7 @@ class CreateSubscriptionInfosTable extends Migration
                 ->references('id')->on('cities')
                 ->onDelete('cascade');
             $table->string('education_level')->nullable();
+            $table->string('educational_status')->nullable();
             $table->string('field_of_study')->nullable();
             $table->string('education_background')->nullable();
             $table->string('arabic_writing')->nullable();

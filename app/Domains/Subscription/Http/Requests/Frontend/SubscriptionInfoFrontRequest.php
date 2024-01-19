@@ -29,6 +29,7 @@ class SubscriptionInfoFrontRequest extends FormRequest
             'city_id' => ['required'],
             'field_of_study' => ['required'],
             'education_level' => ['required'],
+            'educational_status' => ['required'],
             'education_background' => ['required'],
             'arabic_writing' => ['required'],
             'arabic_specking' => ['required'],

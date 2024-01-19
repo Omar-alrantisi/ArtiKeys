@@ -47,7 +47,8 @@ class UsersTable extends DataTableComponent
      */
     public function query(): Builder
     {
-        $query = User::with('roles', 'twoFactorAuth')->withCount('twoFactorAuth');
+        $query = User::with('roles', 'twoFactorAuth','subscription')->withCount('twoFactorAuth');
+
 
         if ($this->status === 'deleted') {
             $query = $query->onlyTrashed();
@@ -99,7 +100,7 @@ class UsersTable extends DataTableComponent
         return [
             Column::make(__('Type'))
                 ->sortable(),
-            Column::make(__('Name'))
+            Column::make(__('Name'),'name_en')
                 ->sortable(),
             Column::make(__('E-mail'), 'email')
                 ->sortable(),
