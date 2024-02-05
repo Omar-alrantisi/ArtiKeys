@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Domains\Auth\Models\User;
 use App\Domains\Lookups\Models\City;
+use App\Domains\Lookups\Models\Country;
 use Database\Seeders\Traits\DisableForeignKeys;
 use Illuminate\Database\Seeder;
 
@@ -19,6 +20,15 @@ class CitiesSeeder extends Seeder
      */
     public function run()
     {
+        Country::create([
+            "code"=>"jo",
+            "name"=>"Jordan",
+            "name_ar"=>"الاردن",
+            "phone_code"=>"962",
+            'created_by_id' => 1,
+            'updated_by_id'=>1
+        ]);
+
         $jordanCities = [
             ['name' => 'Amman', 'name_ar' => 'عمان', 'country_id' => 1, 'created_by_id' => 1,'updated_by_id'=>1],
             ['name' => 'Irbid', 'name_ar' => 'إربد', 'country_id' => 1, 'created_by_id' => 1,'updated_by_id'=>1],

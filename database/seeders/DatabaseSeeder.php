@@ -28,6 +28,9 @@ class DatabaseSeeder extends Seeder
         $this->call(AuthSeeder::class);
         $this->call(AnnouncementSeeder::class);
         $this->call(CitiesSeeder::class);
+        $this->call(PagesSeeder::class);
+        $this->call(TestsSeeder::class);
+        $this->call(WebsiteSettingSeeder::class);
 
         Model::reguard();
     }
