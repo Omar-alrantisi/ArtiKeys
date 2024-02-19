@@ -106,11 +106,11 @@
         @endforeach
     </ol>
 
-    <div class="carousel-inner" style="height: 100vh">
+    <div class="carousel-inner" style="height: 90vh">
         @foreach($sliders as $index => $slider)
             <div class="carousel-item @if($index == 0) active @endif">
                 <img src="{{ storageBaseLink(\App\Enums\Core\StoragePaths::SLIDER_IMAGE.$slider->image) }}"
-                     class="d-block w-100"  style="height: 100vh"alt="Slider Image {{ $index + 1 }}">
+                     class="d-block w-100"  style="height: 90vh"alt="Slider Image {{ $index + 1 }}">
                 <!-- Optional Caption -->
                 <div class="carousel-caption d-none d-md-block">
                     {{--                    <h5>Caption Title</h5>--}}
