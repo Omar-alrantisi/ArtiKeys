@@ -29,7 +29,6 @@ class SubscriptionFrontRequest extends FormRequest
         return [
             'country_id' => ['required'],
             'dob' => ['required', 'date', new AdultDateOfBirth],
-
             'first_name_en' => ['required'],
             'second_name_en' => ['required'],
             'third_name_en' => ['required'],
@@ -44,8 +43,6 @@ class SubscriptionFrontRequest extends FormRequest
             'identification_card' => ['nullable', 'mimes:' . implode(',', StorageManagerService::$allowedImages)],
             'vaccination_certificate' => ['nullable', 'mimes:' . implode(',', StorageManagerService::$allowedImages)],
             'personal_image' => ['required', 'mimes:' . implode(',', StorageManagerService::$allowedImages)],
-
-
         ];
     }
 

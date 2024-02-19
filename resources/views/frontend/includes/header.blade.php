@@ -14,6 +14,26 @@
     <link href="{{storageBaseLink(\App\Enums\Core\StoragePaths::WEBSITE_SETTING_FAVICON.$websiteSetting->favicon)}}"
           rel="icon">
 
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 7%;
+            z-index: 1000; /* Ensure navbar is on top of other content */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important; /* Set text color to white */
+        }
+
+        .navbar-brand img {
+            filter: brightness(0) invert(1); /* Invert the logo image colors to make it white */
+        }
+
+        /* Adjust padding/margins as needed */
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -30,26 +50,34 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{ route('frontend.pages.help') }}">
-                        <i class="fas fa-question-circle mx-1 text-primary-cus"></i>Support</a>
+                        <i class="fas fa-question-circle mx-1 " style="color: white;"></i>Support</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('frontend.pages.terms') }}">
-                        <i class="fas fa-file-alt mx-1 text-primary-cus"></i>
+                        <i class="fas fa-file-alt mx-1" style="color: white;"></i>
                         Terms of Service</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://artikeys.com/">
-                        <i class="fas fa-globe mx-1 text-primary-cus"></i>
+                        <i class="fas fa-globe mx-1 " style="color: white;"></i>
                         ArtiKeys</a>
                 </li>
+                @if (!$logged_in_user)
+                    <a href="{{route('frontend.auth.login')}}" class="nav-link text-dark">
+                        <i class="fas fa-sign-in-alt" style="color: white;"></i> @lang('Login')
+                    </a>
+                    <a href="{{route('frontend.auth.register')}}" class="nav-link text-dark">
+                        <i class="fas fa-user-plus" style="color: white;"></i> @lang('Register')
+                    </a>
+                @endif
                 @if ($logged_in_user&&$logged_in_user->isAdmin())
                     <a href="{{ route('admin.dashboard') }}" class="nav-link text-dark">
-                        <i class="fas fa-dashboard text-primary-cus"></i> @lang('Dashboard')
+                        <i class="fas fa-dashboard" style="color: white;"></i> @lang('Dashboard')
                     </a>
                 @endif
             @if ($logged_in_user&&$logged_in_user->isUser())
                     <a href="{{ route('frontend.frontSubscription.confirmation.index') }}" class="nav-link text-dark">
-                        <i class="fas fa-dashboard text-primary-cus"></i> @lang('Profile')
+                        <i class="fas fa-dashboard" style="color: white;"></i> @lang('Profile')
                     </a>
                 @endif
 
@@ -78,11 +106,11 @@
         @endforeach
     </ol>
 
-    <div class="carousel-inner">
+    <div class="carousel-inner" style="height: 100vh">
         @foreach($sliders as $index => $slider)
             <div class="carousel-item @if($index == 0) active @endif">
                 <img src="{{ storageBaseLink(\App\Enums\Core\StoragePaths::SLIDER_IMAGE.$slider->image) }}"
-                     class="d-block w-100 h-100" alt="Slider Image {{ $index + 1 }}">
+                     class="d-block w-100"  style="height: 100vh"alt="Slider Image {{ $index + 1 }}">
                 <!-- Optional Caption -->
                 <div class="carousel-caption d-none d-md-block">
                     {{--                    <h5>Caption Title</h5>--}}
