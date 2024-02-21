@@ -175,6 +175,8 @@
                                         <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about==='Mujaddidun') selected @endif  @endif value='Mujaddidun'>Mujaddidun</option>
                                         <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about==='Applied Science Private University') selected @endif  @endif value='Applied Science Private University'>Applied Science Private University</option>
                                         <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about==='National Aid Fund') selected @endif  @endif value='National Aid Fund'>National Aid Fund</option>
+                                        <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about==='Hayat Fund for Education charity') selected @endif  @endif value='Hayat Fund for Education charity'>Hayat Fund for Education charity</option>
+                                        <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about==='Al-Afaq Charity For Education') selected @endif  @endif value='Al-Afaq Charity For Education'>Al-Afaq Charity For Education</option>
                                         <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about==='Friend or Family Referral') selected @endif  @endif value='Friend or Family Referral'>Friend or Family Referral</option>
                                         <option @if(isset($users->subscriptionInfo))  @if($users->subscriptionInfo->hear_about==='Social Media') selected @endif  @endif value='Social Media'>Social Media</option>
                                     </select>
