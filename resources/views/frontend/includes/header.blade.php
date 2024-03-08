@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{appName()}}" />
+    <meta property="og:description" content="Artikeys" />
+    <meta property="og:image" content="https://media.licdn.com/dms/image/C4D0BAQGHxM1jibJa3g/company-logo_200_200/0/1679333360797/artikeys_logo?e=2147483647&v=beta&t=MudhL-ENQuSLUXDWWK92N88UTVSLnifLtIdRCSzBAqY" />
+    <meta property="og:url" content="https://sr.artikeys.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{appName()}}">
+    <meta name="twitter:description" content="Artikeys">
+    <meta name="twitter:image" content="https://media.licdn.com/dms/image/C4D0BAQGHxM1jibJa3g/company-logo_200_200/0/1679333360797/artikeys_logo?e=2147483647&v=beta&t=MudhL-ENQuSLUXDWWK92N88UTVSLnifLtIdRCSzBAqY">
+
     <title>{{appName()}} | @yield('sub-title',"Register")</title>
     <link rel="stylesheet" href="{{asset("assets/style/style.css")}}">
     <link rel="stylesheet" href="{{asset("assets/style/bootstrap-5.0.2-dist/css/bootstrap.css")}}">
@@ -32,7 +46,40 @@
             filter: brightness(0) invert(1); /* Invert the logo image colors to make it white */
         }
 
-        /* Adjust padding/margins as needed */
+        /* Mobile menu styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+            z-index: 1000;
+            display: none; /* Initially hidden */
+        }
+
+        /* Close button styles */
+        .close-menu-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1000px) {
+            .navbar {
+                background-color: rgba(0, 0, 0, 0) /* Darker background color */
+            }
+            .show {
+                background-color: rgba(0, 0, 0, 0) /* Darker background color */
+            }
+
+            .navbar-nav .nav-link {
+                color: white !important; /* Text color set to white */
+            }
+        }
     </style>
 </head>
 <body>
@@ -42,9 +89,12 @@
             <img src="{{ storageBaseLink(\App\Enums\Core\StoragePaths::WEBSITE_SETTING_LOGO . $websiteSetting->logo) }}"
                  alt="{{ appName() }} Logo" width="150" height="" class="d-inline-block align-text-top">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        <button class="navbar-toggler toggler-example" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span>
+        </button>
+        <button class="close-menu-btn" type="button">
+            <span>&times;</span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
@@ -75,13 +125,13 @@
                         <i class="fas fa-dashboard" style="color: white;"></i> @lang('Dashboard')
                     </a>
                 @endif
-            @if ($logged_in_user&&$logged_in_user->isUser())
+                @if ($logged_in_user&&$logged_in_user->isUser())
                     <a href="{{ route('frontend.frontSubscription.confirmation.index') }}" class="nav-link text-dark">
                         <i class="fas fa-dashboard" style="color: white;"></i> @lang('Profile')
                     </a>
                 @endif
 
-            @if ($logged_in_user)
+                @if ($logged_in_user)
                     <x-utils.link
                         :text="__('Logout')"
                         class="nav-link text-dark"
@@ -131,4 +181,11 @@
     </a>
 </div>
 
-
+<script>
+    // Close the mobile menu when the close button is clicked
+    document.querySelector('.close-menu-btn').addEventListener('click', function() {
+        document.querySelector('.mobile-menu').style.display = 'none';
+    });
+</script>
+</body>
+</html>
