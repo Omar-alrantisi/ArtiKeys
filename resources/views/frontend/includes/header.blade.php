@@ -11,6 +11,8 @@
     <meta property="og:image" content="https://media.licdn.com/dms/image/C4D0BAQGHxM1jibJa3g/company-logo_200_200/0/1679333360797/artikeys_logo?e=2147483647&v=beta&t=MudhL-ENQuSLUXDWWK92N88UTVSLnifLtIdRCSzBAqY" />
     <meta property="og:url" content="https://sr.artikeys.com" />
     <meta property="og:type" content="website" />
+    <meta property="fb:app_id" content="3626687190993575" />
+
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
