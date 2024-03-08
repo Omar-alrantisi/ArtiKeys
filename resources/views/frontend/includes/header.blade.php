@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="{{appName()}}" />
+    <meta property="og:title" content="Register students for the ArtiKeys" />
     <meta property="og:description" content="Register students for the ArtiKeys Bootcamp, an educational program designed to develop development proficiency and creativity through innovative teaching methods and interactive learning experiences. Join us to unlock your development potential!">
     <meta property="og:image" content="https://media.licdn.com/dms/image/C4D0BAQGHxM1jibJa3g/company-logo_200_200/0/1679333360797/artikeys_logo?e=2147483647&v=beta&t=MudhL-ENQuSLUXDWWK92N88UTVSLnifLtIdRCSzBAqY" />
     <meta property="og:url" content="https://sr.artikeys.com" />
@@ -14,7 +14,7 @@
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{appName()}}">
+    <meta name="twitter:title" content="Register students for the ArtiKeys">
     <meta name="twitter:description" content="Register students for the ArtiKeys Bootcamp, an educational program designed to develop development proficiency and creativity through innovative teaching methods and interactive learning experiences. Join us to unlock your development potential!">
     <meta name="twitter:image" content="https://media.licdn.com/dms/image/C4D0BAQGHxM1jibJa3g/company-logo_200_200/0/1679333360797/artikeys_logo?e=2147483647&v=beta&t=MudhL-ENQuSLUXDWWK92N88UTVSLnifLtIdRCSzBAqY">
 
