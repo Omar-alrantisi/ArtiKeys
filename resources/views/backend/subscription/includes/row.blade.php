@@ -182,6 +182,9 @@ $logged_in_user->hasAllAccess() ||
                 </div></div></div>
     @endif
 </x-livewire-tables::bs4.table.cell>
+
+
+
 <x-livewire-tables::bs4.table.cell>
     @if(!$row->user->subscriptionInfo)
         Not Started
@@ -291,6 +294,110 @@ $logged_in_user->hasAllAccess() ||
     {{$row->user->exams->score}}
     @endif
 </x-livewire-tables::bs4.table.cell>
+
+
+<x-livewire-tables::bs4.table.cell>
+    @if(!$row->user->personalQuestion)
+        Not Started
+    @else
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#subscribtionInfo{{$row->id}}" data-whatever="@mdo">
+            Show   </button>
+        <div class="modal fade" id="subscribtionInfo{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{__("Subscription Info")}} for {{ $row->name_en }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th scope="row">Introduce Yourself</th>
+                                <td>{{$row->user->personalQuestion->about_user??""}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Motivation for RPA Training</th>
+                                <td>{{$row->user->personalQuestion->user_interest_join??""}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Programming Skills</th>
+                                <td>{{$row->user->personalQuestion->user_interest_join??""}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Interest in RPA Development</th>
+                                <td>{{$row->user->personalQuestion->user_interest_join??""}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RPA Developer Responsibilities</th>
+                                <td>{{$row->user->personalQuestion->developer_do??""}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Success in RPA Development</th>
+                                <td>{{$row->user->personalQuestion->successful_developer??""}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Application of Skills</th>
+                                <td>{{$row->user->personalQuestion->use_web_skills??""}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Professional Vision 5 years</th>
+                                <td>{{$row->user->personalQuestion->user_after_5_years??""}}</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Contributions to Cohort</th>
+                                <td>{{$row->user->personalQuestion->user_benefit??""}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div></div></div>
+    @endif
+</x-livewire-tables::bs4.table.cell>
+<x-livewire-tables::bs4.table.cell>
+    @if(!$row->user->exams)
+        Not Started
+    @else
+        {{--        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#englishTest{{$row->id}}" data-whatever="@mdo">--}}
+        {{--            Show   </button>--}}
+        {{--        <div class="modal fade" id="englishTest{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
+        {{--            <div class="modal-dialog" role="document">--}}
+        {{--                <div class="modal-content">--}}
+        {{--                    <div class="modal-header">--}}
+        {{--                        <h5 class="modal-title" id="exampleModalLabel">{{__("English Test")}} for {{ $row->name_en }}</h5>--}}
+        {{--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+        {{--                            <span aria-hidden="true">&times;</span>--}}
+        {{--                        </button>--}}
+        {{--                    </div>--}}
+        {{--                    <div class="modal-body">--}}
+        {{--                        @if(isset($row->user->userEnglishTest))--}}
+        {{--                            <table class="table">--}}
+        {{--                                <tbody>--}}
+        {{--                                <tr>--}}
+        {{--                                    <th scope="row">Education Level</th>--}}
+        {{--                                    <td>{{$row->user->userEnglishTest->level??""}}</td>--}}
+        {{--                                </tr>--}}
+        {{--                                <tr>--}}
+        {{--                                    <th scope="row">Image</th>--}}
+        {{--                                    <td>--}}
+        {{--                                        <a href="{{url('storage/englishTest/images/'.$row->user->userEnglishTest->image)}}" target="_blank">--}}
+        {{--                                            <img src="{{url('storage/englishTest/images/'.$row->user->userEnglishTest->image)}}" width="50" height="50" loading="lazy" />--}}
+        {{--                                        </a>--}}
+        {{--                                    </td>--}}
+        {{--                                </tr>--}}
+        {{--                                </tbody>--}}
+        {{--                            </table>--}}
+        {{--                        @endif--}}
+        {{--                    </div>--}}
+        {{--                </div></div></div>--}}
+        {{$row->user->exams->score}}
+    @endif
+</x-livewire-tables::bs4.table.cell>
+
+
 
 
 

@@ -23,6 +23,7 @@ class SubscriptionsTable extends DataTableComponent
             Column::make(__('Vaccination Certificate')),
             Column::make(__('Edit Marks')),
             Column::make(__('Subscription Details')),
+            Column::make(__('Questioner')),
             Column::make(__('English Test')),
             Column::make(__('Code Challenge Submission')),
             Column::make(__('Actions'))
