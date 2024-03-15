@@ -260,9 +260,9 @@ $logged_in_user->hasAllAccess() ||
     @if(!$row->user->personalQuestion)
         Not Started
     @else
-        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#subscribtionInfo{{$row->id}}" data-whatever="@mdo">
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#personalQuestion{{$row->id}}" data-whatever="@mdo">
             Show   </button>
-        <div class="modal fade" id="subscribtionInfo{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="personalQuestion{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
